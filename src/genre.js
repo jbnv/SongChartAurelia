@@ -1,19 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import 'fetch';
-
-function configForSongChartData(config) {
-  config
-    .useStandardConfiguration()
-    .withBaseUrl('http://localhost:9702/');
-}
+import {configForSongChartData} from './data';
 
 @inject(HttpClient)
-export class Data {
-  title = "";
-  fetchRoute = "";
-
-  massage(data) {}
+export class Genre {
+  title = '(Genre)';
+  parents = [];
+  children = [];
 
   constructor(http) {
     http.configure(configForSongChartData);
@@ -21,8 +15,8 @@ export class Data {
   }
 
   activate() {
-    return this.http.fetch(this.fetchRoute)
+    return this.http.fetch('genre/'+slug)
       .then(response => response.json())
-      .then(massage);
+      .then(genre => { this.genres = genres; this.keys = Object.keys(genres); });
   }
 }
