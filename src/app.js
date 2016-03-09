@@ -7,7 +7,8 @@ export class App {
       { route: 'genres',       name: 'genres', moduleId: './genres', nav: true, title:'Genres' },
       { route: 'locations',    name: 'locations', moduleId: './locations', nav: true, title:'Locations' },
       { route: 'songs',        name: 'songs', moduleId: './songs', nav: true, title:'Songs' },
-      { route: 'sources',      name: 'sources', moduleId: './sources', nav: true, title:'Sources' }
+      { route: 'sources',      name: 'sources', moduleId: './sources', nav: true, title:'Sources' },
+      { route: 'search',      name: 'sources', moduleId: './search', nav: true, title:'Search' }
     ]);
 
     this.router = router;

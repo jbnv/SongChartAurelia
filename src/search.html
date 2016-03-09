@@ -1,0 +1,21 @@
+<template bindable="context">
+  <p>&nbsp;</p>
+
+  <p>&nbsp;</p>
+
+  <section id="results">
+
+    <h2>Search Results</h2>
+
+    <div id="demo-container" class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+      <table class="table">
+        <tr><th>Menu Item</th><th>Sample Result</th></tr>
+        <tr repeat.for="item of menu">
+          <td><b>${item.title}</b></td>
+          <td><i class="fa fa-spinner" if.bind="item.showSpinner"></i>${item.value}</td>
+        </tr>
+      </table>
+    </div>
+
+  </section>
+</template>
