@@ -1,5 +1,33 @@
 <template>
   <section>
-    <h2>${title}</h2>
+    <h2>
+      ${title} <i class="fa fa-check-circle" if.bind="complete"></i>
+    </h2>
+    <table class="table">
+      <tr>
+        <th>Genre(s)</th>
+        <td>
+          <span repeat.for="genreSlug of genres">
+            <a href="#/genre/${genreSlug}">${genreSlug}</a>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <th>Type</th>
+        <td>${type}</td>
+      </tr>
+      <tr>
+        <th>Origin</th>
+        <td>${origin}</td>
+      </tr>
+      <tr>
+        <th>Birth</th>
+        <td>${birth}</td>
+      </tr>
+      <tr>
+        <th>Death</th>
+        <td>${death}</td>
+      </tr>
+    </table>
   </section>
 </template>
