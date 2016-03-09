@@ -3,6 +3,10 @@
     <h2>${heading}</h2>
     <ul repeat.for="artistKey of keys()">
       <li><a href="#/artist/${artistKey}">${artists[artistKey].title}</li>
+      <li>
+        <a href="#/artist/${artistKey}">${artists[artistKey].title}</a>
+        <span class="small" if.bind="artists[artistKey].songCount"><i class="fa fa-circle-o"></i> ${artists[artistKey].songCount || 0}</span>
+      </li>
     </ul>
   </section>
 </template>

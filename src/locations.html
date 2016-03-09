@@ -2,7 +2,10 @@
   <section>
     <h2>${heading}</h2>
     <ul repeat.for="locationKey of keys()">
-      <li><a href="#/location/${locationKey}">${locations[locationKey].title}</li>
+      <li>
+        <a href="#/location/${locationKey}">${locations[locationKey].title}</a>
+        <span class="small" if.bind="locations[locationKey].artistCount"><i class="fa fa-user"></i> ${genres[genreKey].artistCount || 0}</span>
+      </li>
     </ul>
   </section>
 </template>
