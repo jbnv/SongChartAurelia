@@ -14,15 +14,27 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-          <a href.bind="row.href">${row.title}</a>
+        <li class="${router.history.fragment == '/genres' ? 'active' : ''}">
+          <a href="#/genres"><i class="fa"></i> Genres</a>
+        </li>
+        <li class="${router.history.fragment == '/sources' ? 'active' : ''}">
+          <a href="#/sources"><i class="fa fa-film"></i> Sources</a>
+        </li>
+        <li class="${router.history.fragment == '/locations' ? 'active' : ''}">
+          <a href="#/locations"><i class="fa fa-globe"></i> Locations</a>
+        </li>
+        <li class="${router.history.fragment == '/artists' ? 'active' : ''}">
+          <a href="#/artists"><i class="fa fa-user"></i> Artists</a>
+        </li>
+        <li class="${router.history.fragment == '/songs' ? 'active' : ''}">
+          <a href="#/songs"><i class="fa fa-circle-o"></i> Songs</a>
         </li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
        <div class="form-group">
          <input type="text" class="form-control" placeholder="Search">
        </div>
-       <button type="submit" class="btn btn-default">Submit</button>
+       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
      </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="loader" if.bind="router.isNavigating">
