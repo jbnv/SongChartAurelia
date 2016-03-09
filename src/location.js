@@ -1,10 +1,10 @@
 import {Data} from './data';
 
-export class Genre extends Data {
+export class Location extends Data {
 
-  fetchRouteFn = (parameters) => 'genre/'+parameters.slug;
+  fetchRouteFn = (parameters) => 'location/'+parameters.slug;
 
-  title = '(Genre)';
+  title = '(Location)';
   parents = [];
   children = [];
 
@@ -18,5 +18,5 @@ export class Genre extends Data {
     this.parents = inbound.parents;
     this.children = inbound.children;
   }
-  
+
 }
