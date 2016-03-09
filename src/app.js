@@ -2,13 +2,18 @@ export class App {
   configureRouter(config, router) {
     config.title = 'Song Charts';
     config.map([
-      { route: ['','welcome'], name: 'welcome', moduleId: './welcome', title:'Welcome' },
-      { route: 'artists',      name: 'artists', moduleId: './artists', nav: true, title:'Artists' },
-      { route: 'genres',       name: 'genres', moduleId: './genres', nav: true, title:'Genres' },
-      { route: 'locations',    name: 'locations', moduleId: './locations', nav: true, title:'Locations' },
-      { route: 'songs',        name: 'songs', moduleId: './songs', nav: true, title:'Songs' },
-      { route: 'sources',      name: 'sources', moduleId: './sources', nav: true, title:'Sources' },
-      { route: 'search',      name: 'sources', moduleId: './search', nav: true, title:'Search' }
+      { route: ['','welcome'],   name: 'welcome', moduleId: 'welcome', title: 'Welcome' },
+      { route: 'search',         name: 'search', moduleId: 'search', title: 'Search' },
+      { route: 'artist/:slug',   name: 'artist', moduleId: 'artist', title: 'Artist' },
+      { route: 'artists',        name: 'artists', moduleId: 'artists', title: 'Artists' },
+      { route: 'genre/:slug',    name: 'genre', moduleId: 'genre', title: 'Genre' },
+      { route: 'genres',         name: 'genres', moduleId: 'genres', title: 'Genres' },
+      { route: 'location/:slug', name: 'location', moduleId: 'location', title: 'Location' },
+      { route: 'locations',      name: 'locations', moduleId: 'locations', title: 'Locations' },
+      { route: 'song/:slug',     name: 'song', moduleId: 'song', title: 'Song' },
+      { route: 'songs',          name: 'songs', moduleId: 'songs', title: 'Songs' },
+      { route: 'source/:slug',   name: 'source', moduleId: 'source', title: 'Source' },
+      { route: 'sources',        name: 'sources', moduleId: 'sources', title: 'Sources' }
     ]);
 
     this.router = router;
