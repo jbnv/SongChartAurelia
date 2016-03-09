@@ -20,8 +20,13 @@ export class Data {
     this.http = http;
   }
 
-  activate() {
-    return this.http.fetch(this.fetchRoute)
+  activate(parameters) {
+    console.log(parameters);
+    let fetchRoute = this.fetchRoute;
+    if (this.fetchRouteFn) {
+      fetchRoute = this.fetchRouteFn(parameters);
+    }
+    return this.http.fetch(fetchRoute)
       .then(response => response.json())
       .then(this.massage);
   }
