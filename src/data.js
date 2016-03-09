@@ -23,6 +23,6 @@ export class Data {
   activate() {
     return this.http.fetch(this.fetchRoute)
       .then(response => response.json())
-      .then(massage);
+      .then(this.massage);
   }
 }
