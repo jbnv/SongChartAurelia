@@ -1,1 +1,8 @@
-<template></template
+<template>
+  <section>
+    <h2>${heading}</h2>
+    <ul repeat.for="locationKey of keys()">
+      <li><a href="#/location/${locationKey}">${locations[locationKey].title}</li>
+    </ul>
+  </section>
+</template>
