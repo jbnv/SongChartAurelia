@@ -13,20 +13,25 @@
         </td>
       </tr>
       <tr>
-        <th>Type</th>
-        <td>${type}</td>
+        <th>Gender/Type</th>
+        <td>
+          <span if.bind="type == 'm'"><i class="fa fa-mars"></i> Male</span>
+          <span if.bind="type == 'f'"><i class="fa fa-venus"></i> Female</span>
+          <span if.bind="type == 'd'"><i class="fa fa-users"></i> Duo</span>
+          <span if.bind="type == 'g'"><i class="fa fa-users"></i> Group</span>
+        </td>
       </tr>
       <tr>
         <th>Origin</th>
-        <td>${origin}</td>
+        <td><a href="#/location/${origin}">${origin}</a></td>
       </tr>
       <tr>
         <th>Birth</th>
-        <td>${birth}</td>
+        <td><a href="#/date/${birth}">${birth}</a></td>
       </tr>
       <tr>
         <th>Death</th>
-        <td>${death}</td>
+        <td><a href="#/date/${death}">${death}</a></td>
       </tr>
     </table>
   </section>
