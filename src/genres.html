@@ -1,11 +1,11 @@
 <template>
   <section>
     <h2>${heading}</h2>
-    <ul repeat.for="genreKey of keys()">
+    <ul repeat.for="genre of genres">
       <li>
-        <a href="#/genre/${genreKey}">${genres[genreKey].title}</a>
-        <span class="small" if.bind="genres[genreKey].artistCount"><i class="fa fa-user"></i> ${genres[genreKey].artistCount || 0}</span>
-        <span class="small" if.bind="genres[genreKey].songCount"><i class="fa fa-circle-o"></i> ${genres[genreKey].songCount || 0}</span>
+        <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
+        <span class="small" if.bind="genre.artistCount"><i class="fa fa-user"></i> ${genre.artistCount || 0}</span>
+        <span class="small" if.bind="genre.songCount"><i class="fa fa-circle-o"></i> ${genre.songCount || 0}</span>
       </li>
     </ul>
   </section>
