@@ -7,8 +7,9 @@
       <tr>
         <th>Genre(s)</th>
         <td>
-          <span repeat.for="genreSlug of genres">
-            <a href="#/genre/${genreSlug}">${genreSlug}</a>
+          <span repeat.for="genre of genres">
+            <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
+            <span if.bind="!$last">|</span>
           </span>
         </td>
       </tr>
@@ -23,7 +24,7 @@
       </tr>
       <tr>
         <th>Origin</th>
-        <td><a href="#/location/${origin}">${origin}</a></td>
+        <td><a href="#/location/${origin.instanceSlug}">${origin.title}</a></td>
       </tr>
       <tr>
         <th>Birth</th>
