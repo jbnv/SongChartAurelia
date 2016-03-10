@@ -4,11 +4,7 @@ export class Artists extends Data {
   fetchRoute = 'artists';
   heading = 'Artists';
 
-  artists = {};
-
-  keys() {
-    return Object.keys(this.artists);
-  }
+  artists = [];
 
   massage = (inbound) => {
     this.artists = inbound;

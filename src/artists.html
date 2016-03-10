@@ -1,10 +1,19 @@
 <template>
   <section>
     <h2>${heading}</h2>
-    <ul repeat.for="artistKey of keys()">
+    <ul repeat.for="artist of artists">
       <li>
-        <a href="#/artist/${artistKey}">${artists[artistKey].title}</a>
-        <span class="small" if.bind="artists[artistKey].songCount"><i class="fa fa-circle-o"></i> ${artists[artistKey].songCount || 0}</span>
+        <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+        <span class="small">
+          <i class="fa fa-check-circle" if.bind="artist.complete"></i>
+          <i class="fa fa-mars" if.bind="artist.type == 'm'"></i>
+          <i class="fa fa-venus" if.bind="artist.type == 'f'"></i>
+          <i class="fa fa-users" if.bind="artist.type == 'd'"></i>
+          <i class="fa fa-users" if.bind="artist.type == 'g'"></i>
+        </span>
+        <span class="small" if.bind="artist.songCount">
+          <i class="fa fa-circle-o"></i> ${artist.songCount || 0}
+        </span>
       </li>
     </ul>
   </section>
