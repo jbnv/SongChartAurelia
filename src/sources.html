@@ -1,12 +1,14 @@
 <template>
   <section>
     <h2>${heading}</h2>
-    <ul repeat.for="key of keys()">
-      <li><a href="#/source/${key}">${sources[key].title}</li>
-      <li>
-        <a href="#/source/${key}">${sources[key].title}</a>
-        <span class="small" if.bind="sources[key].songCount"><i class="fa fa-circle-o"></i> ${sources[key].songCount || 0}</span>
-      </li>
-    </ul>
+    <table>
+      <tr repeat.for="src of sources">
+        <td>
+          <a href="#/source/${src.instanceSlug}">${src.title}</a>
+          <i class="fa fa-film" if.bind="src.type == 'movie'"></i>
+          <i class="fa fa-tv" if.bind="src.type == 'tv'"></i>
+        </td>
+      </tr>
+    </table>
   </section>
 </template>
