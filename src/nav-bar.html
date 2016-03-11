@@ -14,19 +14,19 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="${router.history.fragment == '/genres' ? 'active' : ''}">
+        <li class="${checkRoute('genres','genre') ? 'active' : ''}">
           <a href="#/genres"><i class="fa"></i> Genres</a>
         </li>
-        <li class="${router.history.fragment == '/sources' ? 'active' : ''}">
+        <li class="${checkRoute('sources','source') ? 'active' : ''}">
           <a href="#/sources"><i class="fa fa-film"></i> Sources</a>
         </li>
-        <li class="${router.history.fragment == '/locations' ? 'active' : ''}">
+        <li class="${checkRoute('locations','location') ? 'active' : ''}">
           <a href="#/locations"><i class="fa fa-globe"></i> Locations</a>
         </li>
-        <li class="${router.history.fragment == '/artists' ? 'active' : ''}">
+        <li class="${checkRoute('artists','artist') ? 'active' : ''}">
           <a href="#/artists"><i class="fa fa-user"></i> Artists</a>
         </li>
-        <li class="${router.history.fragment == '/songs' ? 'active' : ''}">
+        <li class="${checkRoute('songs','song') ? 'active' : ''}">
           <a href="#/songs"><i class="fa fa-circle-o"></i> Songs</a>
         </li>
       </ul>
