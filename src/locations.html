@@ -1,11 +1,15 @@
 <template>
   <section>
     <h2>${heading}</h2>
-    <ul repeat.for="locationKey of keys()">
-      <li>
-        <a href="#/location/${locationKey}">${locations[locationKey].title}</a>
-        <span class="small" if.bind="locations[locationKey].artistCount"><i class="fa fa-user"></i> ${genres[genreKey].artistCount || 0}</span>
-      </li>
-    </ul>
+    <table>
+      <tr repeat.for="location of locations">
+        <td>
+          <a href="#/location/${location.instanceSlug}">${location.title}</a>
+        </td>
+        <td>
+          <span class="small" if.bind="location.artists"><i class="fa fa-user"></i> ${location.artists.length || 0}</span>
+        </td>
+      </tr>
+    </table>
   </section>
 </template>

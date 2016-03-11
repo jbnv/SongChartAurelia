@@ -7,6 +7,7 @@ export class Location extends Data {
   title = '(Location)';
   parents = [];
   children = [];
+  artists = [];
 
   constructor(http) {
     super(http);
@@ -17,6 +18,7 @@ export class Location extends Data {
     this.title = inbound.title;
     this.parents = inbound.parents;
     this.children = inbound.children;
+    this.artists = inbound.artists;
   }
 
 }
