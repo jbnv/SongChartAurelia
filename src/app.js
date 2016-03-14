@@ -10,6 +10,8 @@ export class App {
       { route: 'genres',         name: 'genres', moduleId: 'genres', title: 'Genres' },
       { route: 'location/:slug', name: 'location', moduleId: 'location', title: 'Location' },
       { route: 'locations',      name: 'locations', moduleId: 'locations', title: 'Locations' },
+      { route: 'playlist/:slug', name: 'playlist', moduleId: 'playlist', title: 'Playlist' },
+      { route: 'playlists',      name: 'playlists', moduleId: 'playlists', title: 'Playlists' },
       { route: 'song/:slug',     name: 'song', moduleId: 'song', title: 'Song' },
       { route: 'songs',          name: 'songs', moduleId: 'songs', title: 'Songs' },
       { route: 'source/:slug',   name: 'source', moduleId: 'source', title: 'Source' },

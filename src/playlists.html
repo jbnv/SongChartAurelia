@@ -1,0 +1,15 @@
+<template>
+  <section>
+    <h2>${heading}</h2>
+    <table>
+      <tr repeat.for="playlist of playlists">
+        <td>
+          <a href="#/playlist/${playlist.instanceSlug}">${playlist.title}</a>
+        </td>
+        <td>
+          <span class="small" if.bind="playlist.songs"><i class="fa fa-circle-o"></i> ${playlist.songs.length || 0}</span>
+        </td>
+      </tr>
+    </table>
+  </section>
+</template>
