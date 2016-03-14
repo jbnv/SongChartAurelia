@@ -1,12 +1,24 @@
+import {Columns} from './columns';
+
 export class SongTableHeader {
 
-  columns = {};
+  columns = new Columns({
+    'rank': 'Rank',
+    'title': 'Title',
+    'artist': "Artist",
+    'score': 'Score',
+    'projectedRank': "Projected Rank",
+    'debutDate': "Debut Date",
+    'debutRank': "Debut Rank",
+    'peakRank': "Peak Rank",
+    'duration': "Duration (Months)",
+    'k': "Coefficient Constant",
+    'a': "Ascent Coefficient",
+    'b': "Descent Coefficient",
+    'timeToPeak': "Time to Peak"
+  });
 
-  constructor(columns) {
-    this.columns = columns;
-  }
-
-  identity = angular.identity;
+  identity = x => x;
 
   init() {
     setFilter();
@@ -24,20 +36,20 @@ export class SongTableHeader {
     } else if (p.topByPeak) {
       resultTitle = 'Top Songs by Peak Position';
       dataParameters = { 'sortField':'-peakRank', 'top':100 };
-      columns.show('rank','score');
-      columns.hide('debutDate','projectedRank');
+      this.columns.show('rank','score');
+      this.columns.hide('debutDate','projectedRank');
       //TODO
     } else if (p.topByDebut) {
       resultTitle = 'Top Songs by Debut Position';
       dataParameters = { 'sortField':'-debutRank', 'top':100 };
-      columns.show('rank','score');
-      columns.hide('debutDate','projectedRank');
+      this.columns.show('rank','score');
+      this.columns.hide('debutDate','projectedRank');
       //TODO
     } else if (p.topByDuration) {
       resultTitle = 'Top Songs by Longevity';
       dataParameters = { 'sortField':'-duration', 'top':100 };
-      columns.show('rank','score');
-      columns.hide('debutDate','projectedRank');
+      this.columns.show('rank','score');
+      this.columns.hide('debutDate','projectedRank');
       //TODO
     } else if (p.artist) {
       //TODO
@@ -49,10 +61,10 @@ export class SongTableHeader {
       display = {
         decade: (p.decade ? ''+p.decade+'s' : "Decade"), year: "Year", month: "Month"
       };
-      columns.show('rank');
-      columns.hide('debutDate');
-      columns.hide('projectedRank');
-      columns.show('score');
+      this.columns.show('rank');
+      this.columns.hide('debutDate');
+      this.columns.hide('projectedRank');
+      this.columns.show('score');
       showIsDebut = false;
       dataParameters = {
         'pagename': 'calendar:'+p.decade+'s',
@@ -80,23 +92,23 @@ export class SongTableHeader {
       display = {
         decade: ''+p.decade+'s', year: ''+p.year, month: p.month ? months[p.month-1] : 'Select Month'
       };
-      columns.show('rank');
-      columns.hide('debutDate');
+      this.columns.show('rank');
+      this.columns.hide('debutDate');
       dataParameters = { 'year': p.year }; //TODO add refresh
       if (p.month) {
         resultTitle = months[p.month-1]+' '+p.year;
         dataParameters.pagename = 'calendar:'+p.year+'-'+('0'+p.month).substr(0,2);
         dataParameters.month = p.month;
         showIsDebut = true;
-        columns.show('projectedRank');
-        columns.hide('score');
+        this.columns.show('projectedRank');
+        this.columns.hide('score');
         dataParameters.sortField = 'projectedRank';
       } else {
         dataParameters.pagename = 'calendar:'+p.year;
         resultTitle = p.year;
         showIsDebut = false;
-        columns.hide('projectedRank');
-        columns.show('score');
+        this.columns.hide('projectedRank');
+        this.columns.show('score');
         dataParameters.sortField = '-score';
         dataParameters.transformFn = function(songDataArray) {
           return {
@@ -125,24 +137,7 @@ export class SongTableHeader {
     sortPredicate = predicate;
   }
 
-  columns = new Columns({
-    'rank': 'Rank',
-    'title': 'Title',
-    'artist': "Artist",
-    'score': 'Score',
-    'projectedRank': "Projected Rank",
-    'debutDate': "Debut Date",
-    'debutRank': "Debut Rank",
-    'peakRank': "Peak Rank",
-    'duration': "Duration (Months)",
-    'k': "Coefficient Constant",
-    'a': "Ascent Coefficient",
-    'b': "Descent Coefficient",
-    'timeToPeak': "Time to Peak"
-  });
-  columns.timeToPeak.hidden = true;
-
-  dateString = function(scoreObject) {
+  dateString(scoreObject) {
     return scoreObject.year + '-' + ("00"+scoreObject.month).substr(-2,2);
   }
 
@@ -193,7 +188,7 @@ export class SongTableHeader {
         showSpinner = false;
       }
     );
-    };
+  };
 
   reload = getSongChartData;
 
@@ -202,26 +197,12 @@ export class SongTableHeader {
     filter.limit = n;
   }
 
-  openSongModal = function (song) {
-    var modalInstance = $modal.open({
-      templateUrl: 'songModal.html',
-      controller: 'songModalController',
-      size: '',
-      resolve: {
-        song: function () {
-          return song;
-        }
-      }
-    });
-  };
+  openSongModal = function (song) {}; //empty for now
 
-  openAlertModal = function () {
-    var modalInstance = $modal.open({
-      templateUrl: 'alertModal.html',
-      controller: 'alertModalController',
-      size: ''
-    });
-  };
+  openAlertModal = function () {}; //empty for now
 
-  init();
+  constructor() {
+    this.columns.timeToPeak.hidden = true;
+    init();
+  }
 }

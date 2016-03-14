@@ -1,0 +1,13 @@
+<template>
+  <require from='./song-th'></require>
+  <require from='./song-tr'></require>
+
+  <table class="table">
+    <thead>
+      <song-th columns.bind="columns"></song-th>
+    </thead>
+    <tbody>
+      <song-tr repeat.for="song of songs" columns.bind="columns" songs.bind="songs"></song-tr>
+    </tbody>
+  </table>
+</template>

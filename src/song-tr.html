@@ -1,4 +1,4 @@
-<template>
+<template binding="song,column">
   <tr>
     <td show.bind="!columns.rank.hidden">${rank}</td>
     <td show.bind="!columns.title.hidden"><a href="#/song/${instanceSlug}">${title}</a></td>

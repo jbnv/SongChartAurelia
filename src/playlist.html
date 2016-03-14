@@ -1,15 +1,11 @@
 <template>
+  <require from='./song-table.html'></require>
+
   <section>
     <h2>${title}</h2>
   </section>
   <section>
     <h3>Songs</h3>
-    <table>
-      <tr repeat.for="song of songs">
-        <td>
-          <a href="#/song/${song.instanceSlug}">${song.title}</a>
-        </td>
-      </tr>
-    </table>
+    <song-table songs.bind="songs"></song-table>
   </section>
 </template>
