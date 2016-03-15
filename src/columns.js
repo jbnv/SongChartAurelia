@@ -1,21 +1,21 @@
-
 export class Columns {
 
-  _content = {};
+  keys = [];
 
   // init: { slug: title }
   constructor(init) {
   	if (init) {
       Object.keys(init).forEach(key => {
         var title = init[key];
-  			this._content[key] = { 'title': title };
+        this.keys.push(key);
+  			this[key] = { 'title': title };
   		});
   	}
   }
 
   show() {
   	for (var index in arguments) {
-  		this._content[arguments[index]].hidden = false;
+  		this[arguments[index]].hidden = false;
   	}
   }
 
@@ -24,7 +24,7 @@ export class Columns {
   	for (var index in arguments) {
   		columnsToShow.push(arguments[index]);
   	}
-    Object.keys(this._content).forEach(key => {
+    this.keys.forEach(key => {
       var column = init[key];
   		column.hidden = (columnsToShow.indexOf(key) == -1);
   	});
@@ -32,7 +32,7 @@ export class Columns {
 
   hide(slug) {
   	for (var index in arguments) {
-  		this._content[arguments[index]].hidden = true;
+  		this[arguments[index]].hidden = true;
   	}
   }
 

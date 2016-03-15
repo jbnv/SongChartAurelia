@@ -14,6 +14,7 @@ export class SongTableRow {
   columns = {};
 
   constructor(song,columns) {
+    console.log("song-tr:constructor",song,columns);
     this.columns = columns;
 
     this.rank = song.rank;
@@ -26,6 +27,14 @@ export class SongTableRow {
     this.peakRank = song.peakRank;
     this.duration = song.duration;
     this.timeToPeak =  song.timeToPeak;
+  }
+
+  bind(bindingContext, overrideContext) {
+    console.log("song-tr:bind",bindingContext, overrideContext);
+  }
+
+  activate(parameters) {
+    console.log("song-tr:activate",parameters);
   }
 
 }
