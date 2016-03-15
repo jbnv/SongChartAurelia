@@ -133,18 +133,19 @@
       <tr repeat.for="song of songs">
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
-        <td show.bind="!columns.title.hidden"><a href="#/song/${instanceSlug}">${song.title}</a></td>
+        <td show.bind="!columns.title.hidden"><a href="#/song/${song.instanceSlug}">${song.title}</a></td>
         <td show.bind="!columns.artistName.hidden">
-          ARTIST(S)
+          ${song.artists[0].title}
         </td>
-        <td show.bind="!columns.debutDate.hidden">${dateString(song)}</td>
+        <td show.bind="!columns.debutDate.hidden">${song.debut}</td>
         <td show.bind="!columns.score.hidden">${song.score}</td>
         <td show.bind="!columns.projectedRank.hidden"><i class="fa fa-star text-primary" show.bind="song.isDebut"></i></th>
         <td show.bind="!columns.projectedRank.hidden" style="text-align:right">${song.projectedRank}</td>
-        <td show.bind="!columns.debutRank.hidden">${song.ranks[0]}</td>
+        <td show.bind="!columns.debutRank.hidden">${song.debutRank}</td>
         <td show.bind="!columns.peakRank.hidden">${song.peakRank}</td>
         <td show.bind="!columns.duration.hidden"><span show.bind="!columns.projectedRank.hidden">${song.monthIndex+1} / </span>${song.duration}</td>
         <td show.bind="!columns.timeToPeak.hidden">${song.timeToPeak }</td>
+        <td show.bind="columns.projectedRank.hidden" repeat.for="index of [0,1,2,3]" style="text-align:right">${song.ranks[song.monthIndex*4+index]}</td>
 
       </tr>
 

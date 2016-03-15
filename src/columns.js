@@ -13,26 +13,24 @@ export class Columns {
   	}
   }
 
+  column = (slug) => this[slug] || {};
+
   show() {
   	for (var index in arguments) {
-  		this[arguments[index]].hidden = false;
+      this.column(arguments[index]).hidden = false;
   	}
   }
 
   showOnly() {
-  	var columnsToShow = [];
-  	for (var index in arguments) {
-  		columnsToShow.push(arguments[index]);
+    this.keys.forEach(key => this[key].hidden = true);
+    for (var index in arguments) {
+      this.column(arguments[index]).hidden = false;
   	}
-    this.keys.forEach(key => {
-      var column = init[key];
-  		column.hidden = (columnsToShow.indexOf(key) == -1);
-  	});
   }
 
   hide(slug) {
   	for (var index in arguments) {
-  		this[arguments[index]].hidden = true;
+      this.column(arguments[index]).hidden = true;
   	}
   }
 

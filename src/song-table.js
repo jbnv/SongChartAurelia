@@ -165,5 +165,12 @@ export class SongTable {
 
   activate(data) {
     this.songs = data.songs;
+    // Make sure that each song has good data.
+    this.songs.forEach(function(song) {
+      if (!song.artists) song.artists = [];
+    });
+    if (data.showOnly) {
+      Columns.prototype.showOnly.apply(this.columns,data.showOnly);
+    }
   }
 }
