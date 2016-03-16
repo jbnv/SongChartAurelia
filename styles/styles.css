@@ -173,3 +173,19 @@ div.au-stagger {
     opacity: 1;
   }
 }
+
+/* Custom symbols. */
+
+.fa-artist:before { content:"\f007" } /* user */
+
+.fa-genre:before { content:"\f0c8" } /* square (TEMP) */
+
+.fa-location:before { content:"\f0ac" } /* globe */
+
+.fa-playlist:before { content:"\f03a" } /* list */
+
+.fa-song:before { content:"\f10c" } /* circle-o */
+
+.fa-source:before { content:"\f008" } /* film */
+
+.fa-score:before { content:"\f005" } /* star */
