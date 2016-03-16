@@ -1,1 +1,11 @@
-<template></template
+<template>
+
+  <section>
+    <h2>Songs <span class="badge">${songs.length}</span></h2>
+  </section>
+
+  <section>
+    <compose view-model="song-table" model.bind="{'songs':songs}"></compose>
+  </section>
+
+</template>
