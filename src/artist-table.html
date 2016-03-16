@@ -33,6 +33,30 @@
 
         <th show.bind="!columns.songCount.hidden">
           <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-check"></i></a>
+            <ul class="dropdown-menu">
+              <li><i class="fa fa-fw fa-circle"></i> All</li>
+              <li><i class="fa fa-fw fa-check-circle"></i> Complete Only</li>
+              <li><i class="fa fa-fw fa-circle"></i> Incomplete Only</li>
+            </ul>
+          </div>
+        </th>
+
+        <th show.bind="!columns.songCount.hidden">
+          <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">T</a>
+            <ul class="dropdown-menu">
+              <li><i class="fa fa-fw fa-circle"></i> All</li>
+              <li><i class="fa fa-fw fa-mars"></i> Solo Males</li>
+              <li><i class="fa fa-fw fa-venus"></i> Solo Females</li>
+              <li><i class="fa fa-fw fa-users"></i> Duos</li>
+              <li><i class="fa fa-fw fa-users"></i> Groups</li>
+            </ul>
+          </div>
+        </th>
+
+        <th show.bind="!columns.complete.hidden">
+          <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Songs</a>
             <ul class="dropdown-menu">
               <li click.trigger="setSort('songCount')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
@@ -73,6 +97,15 @@
 
         <td show.bind="!columns.rank.hidden">${artist.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/artist/${artist.instanceSlug}">${artist.title}</a></td>
+        <td show.bind="!columns.complete.hidden">
+          <i class="fa fa-check" if.bind="artist.complete"></i>
+        </td>
+        <td show.bind="!columns.type.hidden">
+          <i class="fa fa-mars" if.bind="artist.type == 'm'"></i>
+          <i class="fa fa-venus" if.bind="artist.type == 'f'"></i>
+          <i class="fa fa-users" if.bind="artist.type == 'd'"></i>
+          <i class="fa fa-users" if.bind="artist.type == 'g'"></i>
+        </td>
         <td show.bind="!columns.songCount.hidden">${artist.songCount}</td>
         <td show.bind="!columns.score.hidden">${artist.score}</td>
         <td show.bind="!columns.scoreAdjustedAverage.hidden">${artist.scoreAdjustedAverage}</td>
