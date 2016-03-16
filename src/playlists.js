@@ -2,7 +2,7 @@ import {Data} from './data';
 
 export class Playlists extends Data {
   fetchRoute = 'playlists';
-  heading = 'Playlists';
+  title = 'Playlists';
 
   playlists = {};
 

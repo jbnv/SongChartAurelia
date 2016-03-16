@@ -2,7 +2,7 @@ import {Data} from './data';
 
 export class Artists extends Data {
   fetchRoute = 'artists';
-  heading = 'Artists';
+  title = 'Artists';
 
   artists = [];
 

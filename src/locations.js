@@ -2,7 +2,7 @@ import {Data} from './data';
 
 export class Locations extends Data {
   fetchRoute = 'locations';
-  heading = 'Locations';
+  title = 'Locations';
 
   locations = {};
 

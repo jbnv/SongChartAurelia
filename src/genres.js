@@ -2,7 +2,7 @@ import {Data} from './data';
 
 export class Genres extends Data {
   fetchRoute = 'genres';
-  heading = 'Genres';
+  title = 'Genres';
 
   genres = {};
 

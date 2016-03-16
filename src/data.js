@@ -20,14 +20,17 @@ export class Data {
     this.http = http;
   }
 
-  activate(parameters) {
-    console.log(parameters);
+  activate(parameters,routeConfig) {
     let fetchRoute = this.fetchRoute;
     if (this.fetchRouteFn) {
       fetchRoute = this.fetchRouteFn(parameters);
     }
     return this.http.fetch(fetchRoute)
       .then(response => response.json())
-      .then(this.massage);
+      .then(data => {
+        this.massage(data);
+        routeConfig.navModel.setTitle(this.title);
+      });
   }
+
 }
