@@ -1,0 +1,21 @@
+<template>
+
+  <section>
+    <h2>
+      ${title}
+    </h2>
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <a href="#/genre/${slug}/artists">Artists <span class="badge">${artists.length}</span></a>
+      </li>
+      <li role="presentation" class="active">
+        <a href="#/genre/${slug}/songs">Songs <span class="badge">${songs.length}</span></a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <compose view-model="song-table" model.bind="{'songs':songs,'showOnly':['rank','title','artist','score','debutDate']}"></compose>
+  </section>
+
+</template>

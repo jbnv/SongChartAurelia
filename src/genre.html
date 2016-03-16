@@ -1,19 +1,25 @@
 <template>
+
   <section>
     <h2>${title}</h2>
   </section>
+
   <section>
-    <h3>Artists</h3>
-    <table>
-      <tr repeat.for="artist of artists">
-        <td>
-          <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
-        </td>
-      </tr>
-    </table>
+    <h3><a href="#/genre/${slug}/artists">Artists <span class="badge">${artists.length}</span></a></h3>
+    <ul class="nav nav-pills">
+      <li role="presentation" repeat.for="artist of artists">
+        <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+      </li>
+    </ul>
   </section>
+
   <section>
-    <h3>Songs (${songs.length})</h3>
-    <compose view-model="song-table" model.bind="{'songs':songs,'showOnly':['rank','title','artist','score','debutDate']}"></compose>
+    <h3><a href="#/genre/${slug}/songs">Songs <span class="badge">${songs.length}</span></a></h3>
+    <ul class="nav nav-pills">
+      <li role="presentation" repeat.for="song of songs">
+        <a href="#/song/${song.instanceSlug}">${song.title}</a>
+      </li>
+    </ul>
   </section>
+
 </template>

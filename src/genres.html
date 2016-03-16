@@ -4,28 +4,47 @@
   <section>
     <h2>${heading}</h2>
     <table>
-      <tr repeat.for="genre of genres">
-        <td>
-          <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
-        </td>
-        <td>&nbsp;</td>
-        <td><i class="fa fa-user" if.bind="genre.artists.length > 0"></i></td>
-        <td>&nbsp;</td>
-        <td style="text-align:right">
-          <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span></td>
-        <td>&nbsp;</td>
-        <td><i class="fa fa-circle-o" if.bind="genre.songs.length > 0"></i></td>
-        <td>&nbsp;</td>
-        <td style="text-align:right">
-          <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span></td>
-        </td>
-        <td>&nbsp;</td>
-        <td><i class="fa fa-star" if.bind="genre.score > 0"></i></td>
-        <td>&nbsp;</td>
-        <td style="text-align:right">
-          <span if.bind="genre.score > 0">${genre.score | decimal:2}</span></td>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-artist"></i></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-song"></i></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-score"></i></th>
+          <th></th>
+          <th style="text-align:right">SAA</th>
+          <th></th>
+          <th style="text-align:right">AAA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="genre of genres">
+          <td>
+            <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span></td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="genre.score > 0">${genre.score | decimal:2}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="genre.score > 0">${genre.songAdjustedAverage | decimal:2}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="genre.score > 0">${genre.artistAdjustedAverage | decimal:2}</span></td>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>
