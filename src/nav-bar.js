@@ -7,6 +7,7 @@ if (!String.prototype.startsWith) {
       return this.substr(position, searchString.length) === searchString;
   };
 }
+
 @inject(Router)
 export class NavBar {
 
@@ -14,8 +15,4 @@ export class NavBar {
     this.router = router;
   }
 
-  checkRoute(collectionSlug,itemSlug) {
-    let route = this.router.history.location.hash;
-    return (route === "#/"+collectionSlug) || route.startsWith(`#/${itemSlug}/`);
-  }
 }
