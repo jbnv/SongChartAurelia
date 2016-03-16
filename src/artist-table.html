@@ -1,0 +1,86 @@
+<template>
+
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="font-awesome/css/font-awesome.css"></require>
+  <require from="./decimal"></require>
+
+  <table class="table table-hover">
+    <thead>
+
+      <tr>
+
+    		<th show.bind="!columns.rank.hidden">
+    			<div class="dropdown">
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Rank</a>
+    				<ul class="dropdown-menu">
+    					<li click.trigger="setSort('rank')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-rank')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('rank')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    				</ul>
+    			</div>
+    		</th>
+
+    		<th show.bind="!columns.title.hidden">
+    			<div class="dropdown">
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Title</a>
+    				<ul class="dropdown-menu">
+    					<li click.trigger="setSort('title')"><a href="#"><i class="fa fa-sort-alpha-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-title')"><a href="#"><i class="fa fa-sort-alpha-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('title')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    				</ul>
+    			</div>
+    		</th>
+
+        <th show.bind="!columns.songCount.hidden">
+          <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Songs</a>
+            <ul class="dropdown-menu">
+              <li click.trigger="setSort('songCount')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
+              <li click.trigger="setSort('-songCount')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
+              <li click.trigger="columns.hide('songCount')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+            </ul>
+          </div>
+        </th>
+
+    		<th show.bind="!columns.score.hidden">
+    			<div class="dropdown">
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
+    				<ul class="dropdown-menu">
+    					<li click.trigger="setSort('score')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-score')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('score')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    				</ul>
+    			</div>
+    		</th>
+
+        <th show.bind="!columns.songAdjustedAverage.hidden">
+          <div class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">SAA</a>
+            <ul class="dropdown-menu">
+              <li click.trigger="setSort('songAdjustedAverage')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
+              <li click.trigger="setSort('-songAdjustedAverage')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
+              <li click.trigger="columns.hide('songAdjustedAverage')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+            </ul>
+          </div>
+        </th>
+
+    	</tr>
+
+    </thead>
+    <tbody>
+
+      <tr repeat.for="artist of artists">
+
+        <td show.bind="!columns.rank.hidden">${artist.rank}</td>
+        <td show.bind="!columns.title.hidden"><a href="#/artist/${artist.instanceSlug}">${artist.title}</a></td>
+        <td show.bind="!columns.songCount.hidden">${artist.songCount}</td>
+        <td show.bind="!columns.score.hidden">${artist.score}</td>
+        <td show.bind="!columns.scoreAdjustedAverage.hidden">${artist.scoreAdjustedAverage}</td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</template>
