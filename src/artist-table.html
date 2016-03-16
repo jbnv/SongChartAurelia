@@ -13,9 +13,9 @@
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Rank</a>
     				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('rank')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-rank')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('rank')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    					<li click.trigger="setSort('rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('rank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
     				</ul>
     			</div>
     		</th>
@@ -24,16 +24,16 @@
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Title</a>
     				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('title')"><a href="#"><i class="fa fa-sort-alpha-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-title')"><a href="#"><i class="fa fa-sort-alpha-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('title')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    					<li click.trigger="setSort('title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('title')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
     				</ul>
     			</div>
     		</th>
 
         <th show.bind="!columns.songCount.hidden">
           <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-check"></i></a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-fw fa-check"></i></a>
             <ul class="dropdown-menu">
               <li><i class="fa fa-fw fa-circle"></i> All</li>
               <li><i class="fa fa-fw fa-check-circle"></i> Complete Only</li>
@@ -59,9 +59,9 @@
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Songs</a>
             <ul class="dropdown-menu">
-              <li click.trigger="setSort('songCount')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
-              <li click.trigger="setSort('-songCount')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
-              <li click.trigger="columns.hide('songCount')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+              <li click.trigger="setSort('songCount')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
+              <li click.trigger="setSort('-songCount')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
+              <li click.trigger="columns.hide('songCount')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
             </ul>
           </div>
         </th>
@@ -70,9 +70,9 @@
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
     				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('score')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-score')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('score')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+    					<li click.trigger="setSort('score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
+    					<li click.trigger="setSort('-score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
+    					<li click.trigger="columns.hide('score')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
     				</ul>
     			</div>
     		</th>
@@ -81,9 +81,9 @@
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">SAA</a>
             <ul class="dropdown-menu">
-              <li click.trigger="setSort('songAdjustedAverage')"><a href="#"><i class="fa fa-sort-numeric-asc"></i> Order Ascending</a></li>
-              <li click.trigger="setSort('-songAdjustedAverage')"><a href="#"><i class="fa fa-sort-numeric-desc"></i> Order Descending</a></li>
-              <li click.trigger="columns.hide('songAdjustedAverage')"><a href="#"><i class="fa fa-remove"></i> Remove</a></li>
+              <li click.trigger="setSort('songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
+              <li click.trigger="setSort('-songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
+              <li click.trigger="columns.hide('songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
             </ul>
           </div>
         </th>
@@ -98,13 +98,13 @@
         <td show.bind="!columns.rank.hidden">${artist.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/artist/${artist.instanceSlug}">${artist.title}</a></td>
         <td show.bind="!columns.complete.hidden">
-          <i class="fa fa-check" if.bind="artist.complete"></i>
+          <i class="fa fa-fw fa-check" if.bind="artist.complete"></i>
         </td>
         <td show.bind="!columns.type.hidden">
-          <i class="fa fa-mars" if.bind="artist.type == 'm'"></i>
-          <i class="fa fa-venus" if.bind="artist.type == 'f'"></i>
-          <i class="fa fa-users" if.bind="artist.type == 'd'"></i>
-          <i class="fa fa-users" if.bind="artist.type == 'g'"></i>
+          <i class="fa fa-fw fa-mars" if.bind="artist.type == 'm'"></i>
+          <i class="fa fa-fw fa-venus" if.bind="artist.type == 'f'"></i>
+          <i class="fa fa-fw fa-users" if.bind="artist.type == 'd'"></i>
+          <i class="fa fa-fw fa-users" if.bind="artist.type == 'g'"></i>
         </td>
         <td show.bind="!columns.songCount.hidden">${artist.songCount}</td>
         <td show.bind="!columns.score.hidden">${artist.score}</td>
