@@ -1,4 +1,6 @@
 <template>
+  <require from="./decimal"></require>
+
   <section>
     <h2>${heading}</h2>
     <table>
@@ -6,11 +8,22 @@
         <td>
           <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
         </td>
-        <td>
-          <span class="small" if.bind="genre.artists"><i class="fa fa-user"></i> ${genre.artists.length || 0}</span>
+        <td>&nbsp;</td>
+        <td><i class="fa fa-user" if.bind="genre.artists.length > 0"></i></td>
+        <td>&nbsp;</td>
+        <td style="text-align:right">
+          <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span></td>
+        <td>&nbsp;</td>
+        <td><i class="fa fa-circle-o" if.bind="genre.songs.length > 0"></i></td>
+        <td>&nbsp;</td>
+        <td style="text-align:right">
+          <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span></td>
         </td>
-        <td>
-          <span class="small" if.bind="genre.songs"><i class="fa fa-circle-o"></i> ${genre.songs.length || 0}</span>
+        <td>&nbsp;</td>
+        <td><i class="fa fa-star" if.bind="genre.score > 0"></i></td>
+        <td>&nbsp;</td>
+        <td style="text-align:right">
+          <span if.bind="genre.score > 0">${genre.score | decimal:2}</span></td>
         </td>
       </tr>
     </table>
