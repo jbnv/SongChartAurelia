@@ -1,15 +1,43 @@
 <template>
   <section>
-    <h2>${heading}</h2>
+    <h2>Playlists</h2>
     <table>
-      <tr repeat.for="playlist of playlists">
-        <td>
-          <a href="#/playlist/${playlist.instanceSlug}">${playlist.title}</a>
-        </td>
-        <td>
-          <span class="small" if.bind="playlist.songs"><i class="fa fa-circle-o"></i> ${playlist.songs.length || 0}</span>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th></th>
+          <th style="text-align:right"></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-song"></i></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-score"></i></th>
+          <th></th>
+          <th style="text-align:right">SAA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="playlist of playlists">
+          <td>
+            <a href="#/source/${playlist.instanceSlug}">${playlist.title}</a>
+          </td>
+          <td>&nbsp;</td>
+          <td>
+            <i class="fa fa-film" if.bind="playlist.type == 'movie'"></i>
+            <i class="fa fa-tv" if.bind="playlist.type == 'tv'"></i>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="playlist.songs.length > 0">${playlist.songs.length || 0}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="playlist.score > 0">${playlist.score | decimal:2}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="playlist.score > 0">${playlist.songAdjustedAverage | decimal:2}</span></td>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>
