@@ -1,14 +1,43 @@
 <template>
   <section>
-    <h2>${heading}</h2>
+    <h2>Sources</h2>
     <table>
-      <tr repeat.for="src of sources">
-        <td>
-          <a href="#/source/${src.instanceSlug}">${src.title}</a>
-          <i class="fa fa-film" if.bind="src.type == 'movie'"></i>
-          <i class="fa fa-tv" if.bind="src.type == 'tv'"></i>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th></th>
+          <th style="text-align:right"></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-song"></i></th>
+          <th></th>
+          <th style="text-align:right"><i class="fa fa-score"></i></th>
+          <th></th>
+          <th style="text-align:right">SAA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="src of sources">
+          <td>
+            <a href="#/source/${src.instanceSlug}">${src.title}</a>
+          </td>
+          <td>&nbsp;</td>
+          <td>
+            <i class="fa fa-film" if.bind="src.type == 'movie'"></i>
+            <i class="fa fa-tv" if.bind="src.type == 'tv'"></i>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="src.songs.length > 0">${src.songs.length || 0}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="src.score > 0">${src.score | decimal:2}</span></td>
+          </td>
+          <td>&nbsp;</td>
+          <td style="text-align:right">
+            <span if.bind="src.score > 0">${src.songAdjustedAverage | decimal:2}</span></td>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>
