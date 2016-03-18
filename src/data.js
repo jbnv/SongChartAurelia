@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
+import Transform from './transform';
 import 'fetch';
 
 function configForSongChartData(config) {
@@ -12,6 +13,7 @@ function configForSongChartData(config) {
 export class Data {
   title = "";
   fetchRoute = "";
+  content = function() {} // subclass needs to override this
 
   massage(data) {}
 
@@ -32,5 +34,30 @@ export class Data {
         routeConfig.navModel.setTitle(this.title);
       });
   }
+
+  sort(column,fn) {
+
+    if (this.sortColumn == column) {
+      this.sortOrder = !this.sortOrder;
+    } else {
+      this.sortColumn = column;
+      this.sortOrder = true;
+    }
+
+    if (!fn) {
+      switch (column) {
+        case 'title': fn = Transform.sortByTitle; break;
+        case 'artistCount': fn = Transform.sortByArtistCount; break;
+        case 'songCount': fn = Transform.sortBySongCount; break;
+        case 'score': fn = Transform.sortByScore; break;
+        default: fn = function(a,b) { return 0; }
+      }
+    }
+
+    var outbound = this.content().sort(fn);
+    if (!this.sortOrder) outbound = outbound.reverse();
+    this.content(outbound);
+  }
+
 
 }
