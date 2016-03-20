@@ -2,44 +2,44 @@
   <require from="./decimal"></require>
 
   <section>
-    <h2>Genres <span class="badge">${genres.length}</span></h2>
+    <h2>Genres <span class="badge">${content.length}</span></h2>
     <table class="table table-hover">
       <thead>
         <tr>
           <th><a click.trigger="sortByTitle()">Title</a></th>
-          <th></th>
-          <th style="text-align:right"><a click.trigger="sortByArtistCount()"><i class="fa fa-artist"></i></a></th>
-          <th></th>
-          <th style="text-align:right"><a click.trigger="sortBySongCount()"><i class="fa fa-song"></i></a></th>
-          <th></th>
-          <th style="text-align:right"><a click.trigger="sortByScore()"><i class="fa fa-score"></i></a></th>
-          <th></th>
-          <th style="text-align:right">SAA</th>
-          <th></th>
-          <th style="text-align:right">AAA</th>
+          <th style="text-align:right">
+            <a click.trigger="sortByArtistCount()">Artists</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortBySongCount()">Songs</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByScore()">Score</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortBySAA()">SAA</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByAAA()">AAA</a>
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr repeat.for="genre of genres">
+        <tr repeat.for="genre of content">
           <td>
             <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span></td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span></td>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="genre.score > 0">${genre.score | decimal:2}</span></td>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="genre.score > 0">${genre.songAdjustedAverage | decimal:2}</span></td>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="genre.score > 0">${genre.artistAdjustedAverage | decimal:2}</span></td>
           </td>

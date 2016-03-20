@@ -1,16 +1,6 @@
-import {Data} from './data';
+import {Collection} from './collection';
 
-export class Playlists extends Data {
+export class Playlists extends Collection {
   fetchRoute = 'playlists';
   title = 'Playlists';
-
-  playlists = {};
-
-  keys() {
-    return Object.keys(this.playlists);
-  }
-
-  massage = (inbound) => {
-    this.playlists = inbound;
-  }
 }

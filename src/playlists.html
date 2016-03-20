@@ -1,38 +1,34 @@
 <template>
+  <require from="./decimal"></require>
+
   <section>
-    <h2>Playlists  <span class="badge">${playlists.length}</span></h2>
-    <table>
+    <h2>Playlists  <span class="badge">${content.length}</span></h2>
+    <table class="table table-hover">
       <thead>
         <tr>
-          <th>Title</th>
-          <th></th>
-          <th style="text-align:right"></th>
-          <th></th>
-          <th style="text-align:right"><i class="fa fa-song"></i></th>
-          <th></th>
-          <th style="text-align:right"><i class="fa fa-score"></i></th>
-          <th></th>
-          <th style="text-align:right">SAA</th>
+          <th><a click.trigger="sortByTitle()">Title</a></th>
+          <th style="text-align:right">
+            <a click.trigger="sortBySongCount()">Songs</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByScore()">Score</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortBySAA()">SAA</a>
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr repeat.for="playlist of playlists">
+        <tr repeat.for="playlist of content">
           <td>
             <a href="#/source/${playlist.instanceSlug}">${playlist.title}</a>
           </td>
-          <td>&nbsp;</td>
-          <td>
-            <i class="fa fa-film" if.bind="playlist.type == 'movie'"></i>
-            <i class="fa fa-tv" if.bind="playlist.type == 'tv'"></i>
-          <td>&nbsp;</td>
           <td style="text-align:right">
-            <span if.bind="playlist.songs.length > 0">${playlist.songs.length || 0}</span></td>
+            <span if.bind="playlist.songs.length > 0">${playlist.songs.length || 0}</span>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="playlist.score > 0">${playlist.score | decimal:2}</span></td>
           </td>
-          <td>&nbsp;</td>
           <td style="text-align:right">
             <span if.bind="playlist.score > 0">${playlist.songAdjustedAverage | decimal:2}</span></td>
           </td>

@@ -1,15 +1,39 @@
 <template>
+  <require from="./decimal"></require>
+
   <section>
-    <h2>Locations  <span class="badge">${locations.length}</span></h2>
-    <table>
-      <tr repeat.for="location of locations">
-        <td>
-          <a href="#/location/${location.instanceSlug}">${location.title}</a>
-        </td>
-        <td>
-          <span class="small" if.bind="location.artists"><i class="fa fa-user"></i> ${location.artists.length || 0}</span>
-        </td>
-      </tr>
+    <h2>Locations  <span class="badge">${content.length}</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a click.trigger="sortByTitle()">Title</a></th>
+          <th style="text-align:right">
+            <a click.trigger="sortByArtistCount()">Artists</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByScore()">Score</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByAAA()">AAA</a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="location of content">
+          <td>
+            <a href="#/source/${location.instanceSlug}">${location.title}</a>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="location.artists.length > 0">${location.artists.length || 0}</span></td>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="location.score > 0">${location.score | decimal:2}</span></td>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="location.score > 0">${location.artistAdjustedAverage | decimal:2}</span></td>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>

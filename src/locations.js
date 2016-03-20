@@ -1,16 +1,6 @@
-import {Data} from './data';
+import {Collection} from './collection';
 
-export class Locations extends Data {
+export class Locations extends Collection {
   fetchRoute = 'locations';
   title = 'Locations';
-
-  locations = {};
-
-  keys() {
-    return Object.keys(this.locations);
-  }
-
-  massage = (inbound) => {
-    this.locations = inbound;
-  }
 }

@@ -1,12 +1,6 @@
-import {Data} from './data';
+import {Collection} from './collection';
 
-export class Sources extends Data {
+export class Sources extends Collection {
   fetchRoute = 'sources';
   title = 'Sources';
-
-  sources = [];
-
-  massage = (inbound) => {
-    this.sources = inbound;
-  }
 }
