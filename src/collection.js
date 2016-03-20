@@ -22,8 +22,8 @@ export class Collection extends Data {
         case 'artistCount': fn = Transform.sortByArtistCount; break;
         case 'songCount': fn = Transform.sortBySongCount; break;
         case 'score': fn = Transform.sortByScore; break;
-        case 'songAdjustedAverage': fn = Transform.sortBySAA; break;
-        case 'artistAdjustedAverage': fn = Transform.sortByAAA; break;
+        case 'songAdjustedAverage': fn = Transform.sortBySongAdjustedAverage; break;
+        case 'artistAdjustedAverage': fn = Transform.sortByAritstAdjustedAverage; break;
         default: fn = function(a,b) { return 0; }
       }
     }
