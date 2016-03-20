@@ -189,3 +189,5 @@ div.au-stagger {
 .fa-source:before { content:"\f008" } /* film */
 
 .fa-score:before { content:"\f005" } /* star */
+
+.fa-album:before { content:"\f10c" } /* circle-o */
