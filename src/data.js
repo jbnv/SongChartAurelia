@@ -16,7 +16,7 @@ export class Data {
   massage(data) {}
 
   constructor(http) {
-    http.configure(configForSongChartData);
+    if (http) { http.configure(configForSongChartData); }
     this.http = http;
   }
 

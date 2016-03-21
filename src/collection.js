@@ -28,7 +28,7 @@ export class Collection extends Data {
       }
     }
 
-    var outbound = this.content.sort(fn);
+    var outbound = (this.content || []).sort(fn);
     if (!this.sortOrder) outbound = outbound.reverse();
     this.content = outbound;
   }
