@@ -1,4 +1,5 @@
 <template>
+
   <section>
     <h2>
       ${title} <i class="fa fa-check-circle" if.bind="complete"></i>
@@ -36,4 +37,10 @@
       </tr>
     </table>
   </section>
+
+  <section>
+    <h3>Songs <span class="badge">${songs.length}</span></h3>
+    <compose view-model="song-table" model.bind="{'songs':songs,'showOnly':['rank','title','score','debutDate','debutRank','peakRank','duration']}"></compose>
+  </section>
+
 </template>
