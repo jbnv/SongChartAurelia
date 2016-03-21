@@ -42,7 +42,7 @@
             <span if.bind="genre.score > 0">${genre.songAdjustedAverage | decimal:2}</span></td>
           </td>
           <td style="text-align:right">
-            <span if.bind="genre.score > 0">${genre.artistAdjustedAverage | decimal:2}</span></td>
+            <span if.bind="genre.score > 0 && genre.artists.length > 0">${genre.artistAdjustedAverage | decimal:2}</span></td>
           </td>
         </tr>
       </tbody>
