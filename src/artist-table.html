@@ -93,7 +93,7 @@
     </thead>
     <tbody>
 
-      <tr repeat.for="artist of artists">
+      <tr repeat.for="artist of content">
 
         <td show.bind="!columns.rank.hidden">${artist.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/artist/${artist.instanceSlug}">${artist.title}</a></td>

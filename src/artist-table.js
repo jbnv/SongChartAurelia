@@ -1,6 +1,7 @@
 import {Columns} from './columns';
+import {Collection} from './collection';
 
-export class ArtistTable {
+export class ArtistTable extends Collection {
 
   artists = [];
 
@@ -62,6 +63,7 @@ export class ArtistTable {
   // Lifecycle methods
 
   constructor() {
+    super();
     this.init();
   }
 
@@ -69,16 +71,21 @@ export class ArtistTable {
   }
 
   activate(data) {
-    this.artists = data.artists;
+
+    this.content = data.artists;
+    
     // Make sure that each artist has good data.
-    this.artists.forEach(function(artist) {
-      if (!artist.artists) artist.artists = [];
+    this.content.forEach(function(artist) {
+      if (!artist.songs) artist.songs = [];
     });
+
     if (data.showOnly) {
       Columns.prototype.showOnly.apply(this.columns,data.showOnly);
     } else if (data.hide) {
       Columns.prototype.hide.apply(this.columns,data.hide);
     }
+
+    this.sort('songAdjustedAverage');
 
   }
 }
