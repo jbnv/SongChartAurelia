@@ -7,6 +7,7 @@ export class ArtistTable {
   columns = new Columns({
     'rank': 'Rank',
     'title': 'Name',
+    'complete': 'Complete',
     'songCount': 'Songs',
     'score': 'Score',
     'songAdjustedAverage': 'SAA',
@@ -75,6 +76,9 @@ export class ArtistTable {
     });
     if (data.showOnly) {
       Columns.prototype.showOnly.apply(this.columns,data.showOnly);
+    } else if (data.hide) {
+      Columns.prototype.hide.apply(this.columns,data.hide);
     }
+
   }
 }

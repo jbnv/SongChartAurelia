@@ -1,11 +1,11 @@
 <template>
 
   <section>
-    <h2>Artists <span class="badge">${artists.length}</span></h2>
+    <h2>Artists <span class="badge">${content.length}</span></h2>
   </section>
 
   <section>
-    <compose view-model="artist-table" model.bind="{'artists':artists}"></compose>
+    <compose view-model="artist-table" model.bind="{'artists':content}"></compose>
   </section>
 
 </template>

@@ -31,7 +31,7 @@
     			</div>
     		</th>
 
-        <th show.bind="!columns.songCount.hidden">
+        <th show.bind="!columns.complete.hidden" style="text-align:center">
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-fw fa-check"></i></a>
             <ul class="dropdown-menu">
@@ -42,9 +42,9 @@
           </div>
         </th>
 
-        <th show.bind="!columns.songCount.hidden">
+        <th show.bind="!columns.Type.hidden" style="text-align:center">
           <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">T</a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Type</a>
             <ul class="dropdown-menu">
               <li><i class="fa fa-fw fa-circle"></i> All</li>
               <li><i class="fa fa-fw fa-mars"></i> Solo Males</li>
@@ -55,7 +55,7 @@
           </div>
         </th>
 
-        <th show.bind="!columns.complete.hidden">
+        <th show.bind="!columns.songCount.hidden" style="text-align:right">
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">Songs</a>
             <ul class="dropdown-menu">
@@ -66,7 +66,7 @@
           </div>
         </th>
 
-    		<th show.bind="!columns.score.hidden">
+    		<th show.bind="!columns.score.hidden" style="text-align:right">
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
     				<ul class="dropdown-menu">
@@ -77,7 +77,7 @@
     			</div>
     		</th>
 
-        <th show.bind="!columns.songAdjustedAverage.hidden">
+        <th show.bind="!columns.songAdjustedAverage.hidden" style="text-align:right">
           <div class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">SAA</a>
             <ul class="dropdown-menu">
@@ -97,18 +97,24 @@
 
         <td show.bind="!columns.rank.hidden">${artist.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/artist/${artist.instanceSlug}">${artist.title}</a></td>
-        <td show.bind="!columns.complete.hidden">
+        <td show.bind="!columns.complete.hidden" style="text-align:center">
           <i class="fa fa-fw fa-check" if.bind="artist.complete"></i>
         </td>
-        <td show.bind="!columns.type.hidden">
+        <td show.bind="!columns.type.hidden" style="text-align:center">
           <i class="fa fa-fw fa-mars" if.bind="artist.type == 'm'"></i>
           <i class="fa fa-fw fa-venus" if.bind="artist.type == 'f'"></i>
           <i class="fa fa-fw fa-users" if.bind="artist.type == 'd'"></i>
           <i class="fa fa-fw fa-users" if.bind="artist.type == 'g'"></i>
         </td>
-        <td show.bind="!columns.songCount.hidden">${artist.songCount}</td>
-        <td show.bind="!columns.score.hidden">${artist.score}</td>
-        <td show.bind="!columns.scoreAdjustedAverage.hidden">${artist.scoreAdjustedAverage}</td>
+        <td show.bind="!columns.songCount.hidden" style="text-align:right">
+          <span if.bind="artist.songs.length > 0">${artist.songs.length || 0}</span>
+        </td>
+        <td show.bind="!columns.score.hidden" style="text-align:right">
+          <span if.bind="artist.score > 0">${artist.score | decimal:2}</span></td>
+        </td>
+        <td show.bind="!columns.scoreAdjustedAverage.hidden" style="text-align:right">
+          <span if.bind="artist.score > 0">${artist.songAdjustedAverage | decimal:2}</span></td>
+        </td>
 
       </tr>
 

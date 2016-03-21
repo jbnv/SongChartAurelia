@@ -6,6 +6,7 @@ export class App {
       { route: 'search',         name: 'search', moduleId: 'search', title: 'Search' },
       { route: 'artist/:slug',   name: 'artist', moduleId: 'artist', title: 'Artist' },
       { route: 'artists',        name: 'artists', moduleId: 'artists', title: 'Artists' },
+      { route: 'artists/incomplete', name: 'incomplete-artists', moduleId: 'incomplete-artists', title: 'Incomplete Artists' },
       { route: 'genre/:slug',    name: 'genre-artists', moduleId: 'genre', title: 'Genre' },
       { route: 'genre/:slug/artists',    name: 'genre-artists', moduleId: 'genre-artists', title: 'Genre Artists' },
       { route: 'genre/:slug/songs',    name: 'genre-songs', moduleId: 'genre-songs', title: 'Genre Songs' },

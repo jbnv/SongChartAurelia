@@ -11,7 +11,7 @@ export class Artist extends Data {
   birth = "";
   death = "";
   origin = "";
-
+  songs = [];
 
   massage = (inbound) => {
     this.title = inbound.title;
@@ -21,6 +21,7 @@ export class Artist extends Data {
     this.birth = inbound.birth;
     this.death = inbound.death;
     this.origin = inbound.origin;
+    this.songs = inbound.songs || [];
   }
 
 }

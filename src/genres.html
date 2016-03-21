@@ -30,9 +30,10 @@
             <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
           </td>
           <td style="text-align:right">
-            <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span></td>
+            <span if.bind="genre.artists.length > 0">${genre.artists.length || 0}</span>
+          </td>
           <td style="text-align:right">
-            <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span></td>
+            <span if.bind="genre.songs.length > 0">${genre.songs.length || 0}</span>
           </td>
           <td style="text-align:right">
             <span if.bind="genre.score > 0">${genre.score | decimal:2}</span></td>
