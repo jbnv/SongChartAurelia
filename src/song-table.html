@@ -44,7 +44,7 @@
 
     		<th show.bind="!columns.debutDate.hidden">Date</th>
 
-    		<th show.bind="!columns.score.hidden">
+    		<th show.bind="!columns.score.hidden" style="text-align:right">
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
     				<ul class="dropdown-menu">
@@ -71,7 +71,7 @@
 
     		<th show.bind="!columns.debutRank.hidden">
     			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">D</a>
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Debut</a>
     				<ul class="dropdown-menu">
     					<li><b>Debut Rank (D)</b>
     					<li click.trigger="setSort('debutRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
@@ -81,9 +81,9 @@
     			</div>
     		</th>
 
-    		<th show.bind="!columns.peakRank.hidden">
+    		<th show.bind="!columns.peakRank.hidden" style="text-align:right">
     			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">P</a>
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Peak</a>
     				<ul class="dropdown-menu">
     					<li><b>Peak Rank (P)</b></li>
     					<li click.trigger="setSort('peakRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
@@ -93,9 +93,9 @@
     			</div>
     		</th>
 
-    		<th show.bind="!columns.duration.hidden">
+    		<th show.bind="!columns.duration.hidden" style="text-align:right">
     			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">M</a>
+    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Mths</a>
     				<ul class="dropdown-menu">
     					<li><b>Duration (Months) (M)</b></li>
     					<li click.trigger="setSort('duration')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
@@ -105,7 +105,7 @@
     			</div>
     		</th>
 
-    		<th show.bind="!columns.timeToPeak.hidden">
+    		<th show.bind="!columns.timeToPeak.hidden" style="text-align:right">
     			<div class="dropdown">
     				<a href="#" data-toggle="dropdown" class="dropdown-toggle">H</a>
     				<ul class="dropdown-menu">
@@ -134,21 +134,35 @@
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/song/${song.instanceSlug}">${song.title}</a></td>
-        <td show.bind="!columns.artistName.hidden">
+        <td show.bind="!columns.artist.hidden">
           <span repeat.for="artist of song.artists">
             <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
             <br>
           </span>
         </td>
         <td show.bind="!columns.debutDate.hidden">${song.debut}</td>
-        <td show.bind="!columns.score.hidden">${song.score}</td>
+        <td show.bind="!columns.score.hidden" style="text-align:right">
+          <span show.bind="song.score > 0">${song.score | decimal:2}</span>
+        </td>
         <td show.bind="!columns.projectedRank.hidden"><i class="fa fa-fw fa-star text-primary" show.bind="song.isDebut"></i></th>
-        <td show.bind="!columns.projectedRank.hidden" style="text-align:right">${song.projectedRank}</td>
-        <td show.bind="!columns.debutRank.hidden">${song.debutRank}</td>
-        <td show.bind="!columns.peakRank.hidden">${song.peakRank}</td>
-        <td show.bind="!columns.duration.hidden"><span show.bind="!columns.projectedRank.hidden">${song.monthIndex+1} / </span>${song.duration}</td>
-        <td show.bind="!columns.timeToPeak.hidden">${song.timeToPeak }</td>
-        <td show.bind="!columns.projectedRank.hidden" repeat.for="index of [0,1,2,3]" style="text-align:right">${song.ranks[song.monthIndex*4+index]}</td>
+        <td show.bind="!columns.projectedRank.hidden" style="text-align:right">
+          <span show.bind="song.projectedRank > 0">${song.projectedRank | decimal:1}</span>
+        </td>
+        <td show.bind="!columns.debutRank.hidden" style="text-align:right">
+          <span show.bind="song.debutRank > 0">${song.debutRank | decimal:1}</span>
+        </td>
+        <td show.bind="!columns.peakRank.hidden" style="text-align:right">
+          <span show.bind="song.debutRank > 0">${song.peakRank | decimal:1}</span>
+        </td>
+        <td show.bind="!columns.duration.hidden" style="text-align:right">
+          <span show.bind="!columns.projectedRank.hidden">${song.monthIndex+1} / </span>${song.duration}
+        </td>
+        <td show.bind="!columns.timeToPeak.hidden" style="text-align:right">
+          <span show.bind="song.debutRank > 0">${song.timeToPeak | decimal:1}</span>
+        </td>
+        <td show.bind="!columns.projectedRank.hidden" repeat.for="index of [0,1,2,3]" style="text-align:right">
+          ${song.ranks[song.monthIndex*4+index] | decimal:1}
+        </td>
 
       </tr>
 
