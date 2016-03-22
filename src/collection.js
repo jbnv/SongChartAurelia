@@ -3,7 +3,7 @@ import Transform from './transform';
 
 export class Collection extends Data {
 
-  content = {};
+  content = [];
   sortColumn = "title";
   sortOrder = true; // true = normal; false = reverse;
 
