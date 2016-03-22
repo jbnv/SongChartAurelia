@@ -101,10 +101,7 @@
           <i class="fa fa-fw fa-check" if.bind="artist.complete"></i>
         </td>
         <td show.bind="!columns.type.hidden" style="text-align:center">
-          <i class="fa fa-fw fa-mars" if.bind="artist.type == 'm'"></i>
-          <i class="fa fa-fw fa-venus" if.bind="artist.type == 'f'"></i>
-          <i class="fa fa-fw fa-users" if.bind="artist.type == 'd'"></i>
-          <i class="fa fa-fw fa-users" if.bind="artist.type == 'g'"></i>
+          <i class="fa fa-artist-type-${artist.type}"></i>
         </td>
         <td show.bind="!columns.songCount.hidden" style="text-align:right">
           <span if.bind="artist.songs.length > 0">${artist.songs.length || 0}</span>
