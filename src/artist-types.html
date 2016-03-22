@@ -1,0 +1,39 @@
+<template>
+  <require from="./decimal"></require>
+
+  <section>
+    <h2>Artist Types <span class="badge">${content.length}</span></h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a click.trigger="sortByTitle()">Title</a></th>
+          <th style="text-align:right">
+            <a click.trigger="sortByArtistCount()">Artists</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByScore()">Score</a>
+          </th>
+          <th style="text-align:right">
+            <a click.trigger="sortByAAA()">AAA</a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="artistType of content">
+          <td>
+            <a href="#/artist-type/${artistType.instanceSlug}">${artistType.title}</a>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="artistType.artists.length > 0">${artistType.artists.length || 0}</span>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="artistType.score > 0">${artistType.score | decimal:2}</span></td>
+          </td>
+          <td style="text-align:right">
+            <span if.bind="artistType.score > 0">${artistType.artistAdjustedAverage | decimal:2}</span></td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</template>

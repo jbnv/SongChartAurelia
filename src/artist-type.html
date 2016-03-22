@@ -1,0 +1,11 @@
+<template>
+
+  <section>
+    <h2>Artists <i class="fa fa-filter"></i> ${typeTitle} <span class="badge">${content.length}</span></h2>
+  </section>
+
+  <section>
+    <compose view-model="artist-table" model.bind="{'artists':artists}"></compose>
+  </section>
+
+</template>
