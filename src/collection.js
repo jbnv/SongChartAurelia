@@ -18,6 +18,7 @@ export class Collection extends Data {
 
     if (!fn) {
       switch (column) {
+        case 'rank': fn = Transform.sortByRank; break;
         case 'title': fn = Transform.sortByTitle; break;
         case 'artistCount': fn = Transform.sortByArtistCount; break;
         case 'songCount': fn = Transform.sortBySongCount; break;
@@ -33,6 +34,7 @@ export class Collection extends Data {
     this.content = outbound;
   }
 
+  sortByRank()        { this.sort("rank"); }
   sortByTitle()       { this.sort("title"); }
   sortBySongCount()   { this.sort("songCount"); }
   sortByArtistCount() { this.sort("artistCount"); }

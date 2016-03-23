@@ -1,6 +1,10 @@
 // Methods for sorting, filtering and transforming data for display.
 // This file should be the same between the data and the app.
 
+exports.sortByRank = function(a,b) {
+    return (a.rank || 0) - (b.rank || 0);
+}
+
 exports.sortByTitle = function(a,b) {
   return a.title < b.title ? -1 : 1;
 }
