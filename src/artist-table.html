@@ -9,83 +9,32 @@
 
       <tr>
 
-    		<th show.bind="!columns.rank.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Rank</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('rank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th show.bind="!columns.rank.hidden" class="${sortColumn === 'rank' ? 'active' : ''}">
+          <a click.trigger="sortByRank()">Rank</a>
+        </th>
 
-    		<th show.bind="!columns.title.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Title</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('title')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th show.bind="!columns.title.hidden" class="${sortColumn === 'title' ? 'active' : ''}">
+          <a click.trigger="sortByTitle()">Title</a>
+        </th>
 
         <th show.bind="!columns.complete.hidden" style="text-align:center">
-          <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-fw fa-check"></i></a>
-            <ul class="dropdown-menu">
-              <li><i class="fa fa-fw fa-circle"></i> All</li>
-              <li><i class="fa fa-fw fa-check-circle"></i> Complete Only</li>
-              <li><i class="fa fa-fw fa-circle"></i> Incomplete Only</li>
-            </ul>
-          </div>
+          <i class="fa fa-fw fa-check"></i>
         </th>
 
-        <th show.bind="!columns.Type.hidden" style="text-align:center">
-          <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Type</a>
-            <ul class="dropdown-menu">
-              <li><i class="fa fa-fw fa-circle"></i> All</li>
-              <li><i class="fa fa-fw fa-mars"></i> Solo Males</li>
-              <li><i class="fa fa-fw fa-venus"></i> Solo Females</li>
-              <li><i class="fa fa-fw fa-users"></i> Duos</li>
-              <li><i class="fa fa-fw fa-users"></i> Groups</li>
-            </ul>
-          </div>
+        <th show.bind="!columns.type.hidden" style="text-align:center">
+          Type
         </th>
 
-        <th show.bind="!columns.songCount.hidden" style="text-align:right">
-          <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Songs</a>
-            <ul class="dropdown-menu">
-              <li click.trigger="setSort('songCount')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-              <li click.trigger="setSort('-songCount')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-              <li click.trigger="columns.hide('songCount')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-            </ul>
-          </div>
+        <th class="${sortColumn === 'songCount' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortBySongCount()">Songs</a>
         </th>
 
-    		<th show.bind="!columns.score.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('score')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortByScore()">Score</a>
+        </th>
 
-        <th show.bind="!columns.songAdjustedAverage.hidden" style="text-align:right">
-          <div class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">SAA</a>
-            <ul class="dropdown-menu">
-              <li click.trigger="setSort('songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-              <li click.trigger="setSort('-songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-              <li click.trigger="columns.hide('songAdjustedAverage')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-            </ul>
-          </div>
+        <th class="${sortColumn === 'songAdjustedAverage' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortBySAA()">SAA</a>
         </th>
 
     	</tr>

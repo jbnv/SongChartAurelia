@@ -6,14 +6,16 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th><a click.trigger="sortByTitle()">Title</a></th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'title' ? 'active' : ''}">
+            <a click.trigger="sortByTitle()">Title</a>
+          </th>
+          <th class="${sortColumn === 'songCount' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortBySongCount()">Songs</a>
           </th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortByScore()">Score</a>
           </th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'songAdjustedAverage' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortBySAA()">SAA</a>
           </th>
         </tr>
@@ -21,7 +23,7 @@
       <tbody>
         <tr repeat.for="playlist of content">
           <td>
-            <a href="#/source/${playlist.instanceSlug}">${playlist.title}</a>
+            <a href="#/playlist/${playlist.instanceSlug}">${playlist.title}</a>
           </td>
           <td style="text-align:right">
             <span if.bind="playlist.songs.length > 0">${playlist.songs.length || 0}</span>

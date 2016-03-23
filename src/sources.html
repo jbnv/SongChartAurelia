@@ -6,21 +6,23 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th><a click.trigger="sortByTitle()">Title</a></th>
-          <th style="text-align:center">Type</th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'title' ? 'active' : ''}">
+            <a click.trigger="sortByTitle()">Title</a>
+          </th>
+          <th>Type</th>
+          <th class="${sortColumn === 'songCount' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortBySongCount()">Songs</a>
           </th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortByScore()">Score</a>
           </th>
-          <th style="text-align:right">
+          <th class="${sortColumn === 'songAdjustedAverage' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortBySAA()">SAA</a>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr repeat.for="src of content">
+        <tr repeat.for="src of content" show.bind="src.visible">
           <td>
             <a href="#/source/${src.instanceSlug}">${src.title}</a>
           </td>
