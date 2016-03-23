@@ -17,10 +17,10 @@ exports.sortByArtistCount = function(a,b) {
   return (b.artists || []).length - (a.artists || []).length;
 }
 
-exports.sortBySongAdjustedAverage = function(a,b) {
+exports.sortBySAA = function(a,b) {
   return (b.songAdjustedAverage || 0) - (a.songAdjustedAverage || 0);
 }
 
-exports.sortByArtistAdjustedAverage = function(a,b) {
+exports.sortByAAA = function(a,b) {
   return (b.artistAdjustedAverage || 0) - (a.artistAdjustedAverage || 0);
 }
