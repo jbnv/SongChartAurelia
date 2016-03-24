@@ -6,8 +6,8 @@
     </h2>
     <table class="table">
       <tr>
-        <th>Genre(s)</th>
-        <td>
+        <th>Genre${genres.length > 1 ? 's' : ''}</th>
+        <td colspan=5>
           <span repeat.for="genre of genres">
             <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
             <span if.bind="!$last">|</span>
@@ -17,23 +17,20 @@
       <tr>
         <th>Gender/Type</th>
         <td>
-          <span if.bind="type == 'm'"><i class="fa fa-mars"></i> Male</span>
-          <span if.bind="type == 'f'"><i class="fa fa-venus"></i> Female</span>
-          <span if.bind="type == 'd'"><i class="fa fa-users"></i> Duo</span>
-          <span if.bind="type == 'g'"><i class="fa fa-users"></i> Group</span>
+          <i class="fa fa-artist-type-${type.slug}"></i> ${type.title}
         </td>
+        <th>Birth</th>
+        <td><a href="#/date/${birth}">${birth}</a></td>
+        <th>Score</th>
+        <td>${score}</td>
       </tr>
       <tr>
         <th>Origin</th>
         <td><a href="#/location/${origin.instanceSlug}">${origin.title}</a></td>
-      </tr>
-      <tr>
-        <th>Birth</th>
-        <td><a href="#/date/${birth}">${birth}</a></td>
-      </tr>
-      <tr>
         <th>Death</th>
         <td><a href="#/date/${death}">${death}</a></td>
+        <th>SAA</th>
+        <td>${songAdjustedAverage}</td>
       </tr>
     </table>
   </section>
