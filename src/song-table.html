@@ -9,112 +9,44 @@
 
       <tr>
 
-    		<th show.bind="!columns.rank.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Rank</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-rank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('rank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th show.bind="!columns.rank.hidden" class="${sortColumn === 'rank' ? 'active' : ''}">
+          <a click.trigger="sortByRank()">Rank</a>
+        </th>
 
-    		<th show.bind="!columns.title.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Title</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-title')"><a href="#"><i class="fa fa-fw fa-sort-alpha-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('title')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th show.bind="!columns.title.hidden" class="${sortColumn === 'title' ? 'active' : ''}">
+          <a click.trigger="sortByTitle()">Title</a>
+        </th>
 
     		<th show.bind="!columns.artist.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Artist</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('artistObject.name')"><a href="#"><i class="fa fa-fw fa-sort-alpha-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-artistObject.name')"><a href="#"><i class="fa fa-fw fa-sort-alpha-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('artist')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			Artist
     		</th>
 
     		<th show.bind="!columns.debutDate.hidden">Date</th>
 
-    		<th show.bind="!columns.score.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Score</a>
-    				<ul class="dropdown-menu">
-    					<li click.trigger="setSort('score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-score')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('score')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
-    		</th>
+        <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortByScore()">Score</a>
+        </th>
 
     		<th show.bind="!columns.projectedRank.hidden"></th>
 
     		<th show.bind="!columns.projectedRank.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">PR</a>
-    				<ul class="dropdown-menu">
-    					<li><b>Projected Rank"> (PR)</b>
-    					<li click.trigger="setSort('projectedRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-projectedRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('projectedRank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			Projected Rank
     		</th>
 
     		<th show.bind="!columns.debutRank.hidden">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Debut</a>
-    				<ul class="dropdown-menu">
-    					<li><b>Debut Rank (D)</b>
-    					<li click.trigger="setSort('debutRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-debutRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('debutRank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			DR
     		</th>
 
     		<th show.bind="!columns.peakRank.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Peak</a>
-    				<ul class="dropdown-menu">
-    					<li><b>Peak Rank (P)</b></li>
-    					<li click.trigger="setSort('peakRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-peakRank')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('peakRank')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			PR
     		</th>
 
     		<th show.bind="!columns.duration.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">Mths</a>
-    				<ul class="dropdown-menu">
-    					<li><b>Duration (Months) (M)</b></li>
-    					<li click.trigger="setSort('duration')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-duration')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('duration')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			M
     		</th>
 
     		<th show.bind="!columns.timeToPeak.hidden" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">H</a>
-    				<ul class="dropdown-menu">
-    					<li><b>Time to Peak (H)</b></li>
-    					<li click.trigger="setSort('timeToPeak')"><a href="#"><i class="fa fa-fw fa-sort-numeric-asc"></i> Order Ascending</a></li>
-    					<li click.trigger="setSort('-timeToPeak')"><a href="#"><i class="fa fa-fw fa-sort-numeric-desc"></i> Order Descending</a></li>
-    					<li click.trigger="columns.hide('timeToPeak')"><a href="#"><i class="fa fa-fw fa-remove"></i> Remove</a></li>
-    				</ul>
-    			</div>
+    			H
     		</th>
 
     		<th show.bind="!columns.projectedRank.hidden" repeat.for="index of [1,2,3,4]" style="text-align:right">
@@ -130,13 +62,14 @@
     </thead>
     <tbody>
 
-      <tr repeat.for="song of songs">
+      <tr repeat.for="song of content">
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
         <td show.bind="!columns.title.hidden"><a href="#/song/${song.instanceSlug}">${song.title}</a></td>
         <td show.bind="!columns.artist.hidden">
           <span repeat.for="artist of song.artists">
-            <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+            <a href="#/artist/${artist.slug}">${artist.title}</a>
+            <span class="label" if.bind="artist.roleSlug !== true">${artist.roleSlug}</span>
             <br>
           </span>
         </td>

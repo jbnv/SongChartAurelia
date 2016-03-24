@@ -1,8 +1,7 @@
 import {Columns} from './columns';
+import {Collection} from './collection';
 
-export class SongTable {
-
-  songs = [];
+export class SongTable extends Collection {
 
   columns = new Columns({
     'rank': 'Rank',
@@ -156,6 +155,7 @@ export class SongTable {
   // Lifecycle methods
 
   constructor() {
+    super(); // if you are extending a class you must call super() before accessing 'this'
     this.columns.timeToPeak.hidden = true;
     this.init();
   }
@@ -164,13 +164,18 @@ export class SongTable {
   }
 
   activate(data) {
-    this.songs = data.songs;
+
+    this.content = data.songs;
+
     // Make sure that each song has good data.
-    this.songs.forEach(function(song) {
-      if (!song.artists) song.artists = [];
+    this.content.forEach(function(song) {
+      if (!song.artists) song.artists = {};
     });
+
     if (data.showOnly) {
       Columns.prototype.showOnly.apply(this.columns,data.showOnly);
     }
+
+    this.sort('score');
   }
 }
