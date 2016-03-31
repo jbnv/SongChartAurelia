@@ -1,0 +1,29 @@
+<template>
+
+  <section>
+    <h2>${title}</h2>
+  </section>
+
+  <section>
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <a href="#/year/${year-1}">
+          <i class="fa fa-chevron-left"></i> ${year-1}
+        </a>
+      </li>
+      <li role="presentation" repeat.for="month of months">
+        <a href="#/month/${slug}-${month.slug}">${month.abbr}</a>
+      </li>
+      <li role="presentation">
+        <a href="#/year/${year+1}">
+          ${year+1} <i class="fa fa-chevron-right"></i>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <compose view-model="song-table" model.bind="{'songs':songs,'showOnly':['rank','title','artist','score','debutDate']}"></compose>
+  </section>
+
+</template>

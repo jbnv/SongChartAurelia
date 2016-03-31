@@ -28,6 +28,7 @@ export class Data {
     return this.http.fetch(fetchRoute)
       .then(response => response.json())
       .then(data => {
+        data.instanceSlug = data.instanceSlug || parameters.slug;
         this.massage(data);
         routeConfig.navModel.setTitle(this.title);
       });
