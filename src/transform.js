@@ -6,7 +6,9 @@ exports.sortByRank = function(a,b) {
 }
 
 exports.sortByTitle = function(a,b) {
-  return a.title < b.title ? -1 : 1;
+  var titleA = (""+a.title).replace(/[^\w\s]/g,"");
+  var titleB = (""+b.title).replace(/[^\w\s]/g,"");
+  return titleA < titleB ? -1 : 1;
 }
 
 exports.sortByScore = function(a,b) {
