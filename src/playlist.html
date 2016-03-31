@@ -6,7 +6,7 @@
     <p>${description}</p>
   </section>
   <section>
-    <h3>Songs (${songs.length})</h3>
+    <h3>Songs <span class="badge">${songs.length}</span></h3>
     <compose view-model="song-table" model.bind="{'songs':songs,'showOnly':['rank','title','artist','score','debutDate']}"></compose>
   </section>
 </template>
