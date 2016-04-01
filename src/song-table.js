@@ -176,6 +176,6 @@ export class SongTable extends Collection {
       Columns.prototype.showOnly.apply(this.columns,data.showOnly);
     }
 
-    this.sort('score');
+    this.sort(data.sort || 'score');
   }
 }
