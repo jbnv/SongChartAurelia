@@ -21,6 +21,10 @@
     			Artist
     		</th>
 
+        <th show.bind="!columns.source.hidden">
+    			Source
+    		</th>
+
     		<th show.bind="!columns.debutDate.hidden">Date</th>
 
         <th show.bind="!columns.score.hidden" class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
@@ -65,15 +69,23 @@
       <tr repeat.for="song of content">
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
+
         <td show.bind="!columns.title.hidden"><a href="#/song/${song.instanceSlug}">${song.title}</a></td>
+
         <td show.bind="!columns.artist.hidden">
           <span repeat.for="artist of song.artists">
             <a href="#/artist/${artist.slug}">${artist.title}</a>
-            <span class="label" if.bind="artist.roleSlug !== true">${artist.roleSlug}</span>
+            <span class="small text-muted" if.bind="artist.roleSlug !== true">${artist.roleSlug}</span>
             <br>
           </span>
         </td>
+
+        <td show.bind="!columns.source.hidden">
+            <a href="#/source/${song.source.slug}">${song.source.title}</a>
+        </td>
+
         <td show.bind="!columns.debutDate.hidden">${song.debut}</td>
+
         <td show.bind="!columns.score.hidden" style="text-align:right">
           <span show.bind="song.score > 0">${song.score | decimal:2}</span>
         </td>
