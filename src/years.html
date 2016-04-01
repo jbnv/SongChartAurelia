@@ -1,0 +1,35 @@
+<template>
+  <section>
+    <h2>Years</h2>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-2 col-xs-1">
+        </div>
+        <div class="col-lg-6 col-md-8 col-xs-10">
+
+          <div class="container">
+            <div class="row" repeat.for="year of years">
+              <div class="col-xs-1"><a href="#/year/${year.slug}">${year.slug}</a></div>
+              <div class="col-xs-4">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-info" role="progressbar"
+                    aria-valuenow.bind="year.songCount" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
+                    style="width: ${100*year.songCount/maxSongCount}%;">
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-1 text-right">${year.songCount}</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-3 col-md-2 col-xs-1">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</template>

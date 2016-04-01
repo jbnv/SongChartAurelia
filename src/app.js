@@ -10,6 +10,7 @@ export class App {
       { route: 'artist-type/:slug', name: 'artist-type', moduleId: 'artist-type', title: 'Artist Type' },
       { route: 'artist-types',      name: 'artist-types', moduleId: 'artist-types', title: 'Artists Types' },
       { route: 'decade/:slug',   name: 'decade', moduleId: 'decade' },
+      { route: 'decades',        name: 'decades', moduleId: 'decades' },
       { route: 'eras',           name: 'eras', moduleId: 'eras' },
       { route: 'genre/:slug',    name: 'genre-artists', moduleId: 'genre', title: 'Genre' },
       { route: 'genre/:slug/artists',    name: 'genre-artists', moduleId: 'genre-artists', title: 'Genre Artists' },
@@ -24,7 +25,8 @@ export class App {
       { route: 'songs',          name: 'songs', moduleId: 'songs', title: 'Songs' },
       { route: 'source/:slug',   name: 'source', moduleId: 'source', title: 'Source' },
       { route: 'sources',        name: 'sources', moduleId: 'sources', title: 'Sources' },
-      { route: 'year/:slug',     name: 'year', moduleId: 'year' }
+      { route: 'year/:slug',     name: 'year', moduleId: 'year' },
+      { route: 'years',          name: 'years', moduleId: 'years' }
     ]);
 
     this.router = router;
