@@ -23,7 +23,7 @@
 
     		<th show.bind="!columns.debutDate.hidden">Date</th>
 
-        <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
+        <th show.bind="!columns.score.hidden" class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
           <a click.trigger="sortByScore()">Score</a>
         </th>
 
