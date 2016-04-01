@@ -35,9 +35,9 @@
       </ul>
       <form class="navbar-form navbar-left" role="search">
        <div class="form-group">
-         <input type="text" class="form-control" placeholder="Search">
+         <input type="text" class="form-control" placeholder="Search" value.bind="searchTerm">
        </div>
-       <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+       <button click.trigger="search()" type="submit" class="btn btn-default"><i class.bind="searchButtonClass()"></i></button>
      </form>
       <ul class="nav navbar-nav navbar-right">
         <li class="loader" if.bind="router.isNavigating">
