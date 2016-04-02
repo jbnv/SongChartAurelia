@@ -8,6 +8,8 @@ export class SongTable extends Collection {
     'title': 'Title',
     'artist': "Artist",
     'score': 'Score',
+    'role': 'Role',
+    'source': 'Source',
     'projectedRank': "Projected Rank",
     'debutDate': "Debut Date",
     'debutRank': "Debut Rank",
@@ -169,7 +171,7 @@ export class SongTable extends Collection {
 
     // Make sure that each song has good data.
     this.content.forEach(function(song) {
-      if (!song.artists) song.artists = {};
+      if (!song.artists) song.artists = [];
     });
 
     if (data.showOnly) {

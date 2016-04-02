@@ -91,22 +91,31 @@
         <td show.bind="!columns.score.hidden" style="text-align:right">
           <span show.bind="song.score > 0">${song.score | decimal:2}</span>
         </td>
-        <td show.bind="!columns.projectedRank.hidden"><i class="fa fa-fw fa-star text-primary" show.bind="song.isDebut"></i></th>
+
+        <td show.bind="!columns.projectedRank.hidden">
+          <i class="fa fa-fw fa-star text-primary" show.bind="song.isDebut"></i>
+        </td>
+
         <td show.bind="!columns.projectedRank.hidden" style="text-align:right">
           <span show.bind="song.projectedRank > 0">${song.projectedRank | decimal:1}</span>
         </td>
+
         <td show.bind="!columns.debutRank.hidden" style="text-align:right">
           <span show.bind="song.debutRank > 0">${song.debutRank | decimal:1}</span>
         </td>
+
         <td show.bind="!columns.peakRank.hidden" style="text-align:right">
           <span show.bind="song.debutRank > 0">${song.peakRank | decimal:1}</span>
         </td>
+
         <td show.bind="!columns.duration.hidden" style="text-align:right">
           <span show.bind="!columns.projectedRank.hidden">${song.monthIndex+1} / </span>${song.duration}
         </td>
+
         <td show.bind="!columns.timeToPeak.hidden" style="text-align:right">
           <span show.bind="song.debutRank > 0">${song.timeToPeak | decimal:1}</span>
         </td>
+
         <td show.bind="!columns.projectedRank.hidden" repeat.for="index of [0,1,2,3]" style="text-align:right">
           ${song.ranks[song.monthIndex*4+index] | decimal:1}
         </td>
