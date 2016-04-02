@@ -18,11 +18,15 @@ export function sortByScore(a,b) {
 }
 
 export function sortBySongCount(a,b) {
-  return (b.songs || []).length - (a.songs || []).length;
+  let aCount = (a.songs || []).length || a.songCount || 0;
+  let bCount = (b.songs || []).length || b.songCount || 0;
+  return bCount - aCount;
 }
 
 export function sortByArtistCount(a,b) {
-  return (b.artists || []).length - (a.artists || []).length;
+  let aCount = (a.artists || []).length || a.artistCount || 0;
+  let bCount = (b.artists || []).length || b.artistCount || 0;
+  return bCount - aCount;
 }
 
 export function sortBySAA(a,b) {
