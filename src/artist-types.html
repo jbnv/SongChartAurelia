@@ -24,6 +24,7 @@
         <tr repeat.for="artistType of content">
           <td>
             <a href="#/artist-type/${artistType.instanceSlug}">${artistType.title}</a>
+            <i class="fa fa-artist-type-${artistType.instanceSlug}"></i>
           </td>
           <td style="text-align:right">
             <span if.bind="artistType.artists.length > 0">${artistType.artists.length || 0}</span>
