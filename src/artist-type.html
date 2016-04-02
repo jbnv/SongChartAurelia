@@ -3,13 +3,15 @@
   <section>
     <h2>
       Artists
-      <i class="fa fa-filter"></i> ${typeTitle}
-      <span class="badge">${artists.length}</span>
+      <i class="fa fa-filter"></i>
+      ${typeTitle}
+      <i class="fa fa-artist-type-${slug}"></i>
+      <span class="badge">${artistTableModel.artists.length}</span>
     </h2>
   </section>
 
   <section>
-    <compose view-model="artist-table" model.bind="{'artists':artists}"></compose>
+    <compose view-model="artist-table" model.bind="artistTableModel"></compose>
   </section>
 
 </template>

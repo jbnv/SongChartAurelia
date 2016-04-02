@@ -8,6 +8,7 @@ export class ArtistTable extends Collection {
   columns = new Columns({
     'rank': 'Rank',
     'title': 'Name',
+    'type': 'Type',
     'complete': 'Complete',
     'songCount': 'Songs',
     'score': 'Score',
@@ -73,7 +74,7 @@ export class ArtistTable extends Collection {
   activate(data) {
 
     this.content = data.artists;
-    
+
     // Make sure that each artist has good data.
     this.content.forEach(function(artist) {
       if (!artist.songs) artist.songs = [];
