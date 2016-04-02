@@ -25,7 +25,9 @@
     			Source
     		</th>
 
-    		<th show.bind="!columns.debutDate.hidden">Date</th>
+        <th show.bind="!columns.debutDate.hidden" class="${sortColumn === 'debutDate' ? 'active' : ''}">
+          <a click.trigger="sortByDebutDate()">Debut</a>
+        </th>
 
         <th show.bind="!columns.score.hidden" class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
           <a click.trigger="sortByScore()">Score</a>
@@ -37,7 +39,7 @@
     			Projected Rank
     		</th>
 
-    		<th show.bind="!columns.debutRank.hidden">
+    		<th show.bind="!columns.debutRank.hidden" style="text-align:right">
     			DR
     		</th>
 

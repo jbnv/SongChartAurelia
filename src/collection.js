@@ -1,5 +1,5 @@
 import {Data} from './data';
-import Transform from './transform';
+import * as Transform from './transform';
 
 export class Collection extends Data {
 
@@ -22,6 +22,7 @@ export class Collection extends Data {
         case 'title': fn = Transform.sortByTitle; break;
         case 'artistCount': fn = Transform.sortByArtistCount; break;
         case 'songCount': fn = Transform.sortBySongCount; break;
+        case 'debutDate': fn = Transform.sortByDebutDate; break;
         case 'score': fn = Transform.sortByScore; break;
         case 'songAdjustedAverage': fn = Transform.sortBySAA; break;
         case 'artistAdjustedAverage': fn = Transform.sortByAAA; break;
@@ -36,6 +37,7 @@ export class Collection extends Data {
 
   sortByRank()        { this.sort("rank"); }
   sortByTitle()       { this.sort("title"); }
+  sortByDebutDate()   { this.sort("debutDate"); }
   sortBySongCount()   { this.sort("songCount"); }
   sortByArtistCount() { this.sort("artistCount"); }
   sortByScore()       { this.sort("score"); }
