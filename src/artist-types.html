@@ -6,35 +6,64 @@
     <table class="table table-hover">
       <thead>
         <tr>
+
           <th class="${sortColumn === 'title' ? 'active' : ''}">
             <a click.trigger="sortByTitle()">Title</a>
           </th>
-          <th class="${sortColumn === 'artistCount' ? 'active' : ''}" style="text-align:right">
+
+          <th colspan=2 class="${sortColumn === 'artistCount' ? 'active' : ''}" >
             <a click.trigger="sortByArtistCount()">Artists</a>
           </th>
+
           <th class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
             <a click.trigger="sortByScore()">Score</a>
           </th>
-          <th class="${sortColumn === 'artistAdjustedAverage' ? 'active' : ''}" style="text-align:right">
+
+          <th colspan=2 class="${sortColumn === 'artistAdjustedAverage' ? 'active' : ''}">
             <a click.trigger="sortByAAA()">AAA</a>
           </th>
+
         </tr>
       </thead>
       <tbody>
+
         <tr repeat.for="artistType of content">
+
           <td>
             <a href="#/artist-type/${artistType.instanceSlug}">${artistType.title}</a>
             <i class="fa fa-artist-type-${artistType.instanceSlug}"></i>
           </td>
+
           <td style="text-align:right">
-            <span if.bind="artistType.artists.length > 0">${artistType.artists.length || 0}</span>
+            <span if.bind="artistType.artistCount > 0">${artistType.artistCount || 0}</span>
           </td>
+
+          <td>
+            <div class="progress" style="width:10em">
+              <div class="progress-bar progress-bar-info" role="progressbar"
+                aria-valuenow.bind="artistType.artistCount" aria-valuemin="0" aria-valuemax.bind="maxArtistCount"
+                style="width: ${100*artistType.artistCount/maxArtistCount}%;">
+              </div>
+            </div>
+          </td>
+
           <td style="text-align:right">
             <span if.bind="artistType.score > 0">${artistType.score | decimal:2}</span></td>
           </td>
+
           <td style="text-align:right">
             <span if.bind="artistType.score > 0">${artistType.artistAdjustedAverage | decimal:2}</span></td>
           </td>
+
+          <td>
+            <div class="progress" style="width:10em">
+              <div class="progress-bar progress-bar-info" role="progressbar"
+                aria-valuenow.bind="artistType.artistAdjustedAverage" aria-valuemin="0" aria-valuemax.bind="maxArtistAdjustedAverage"
+                style="width: ${100*artistType.artistAdjustedAverage/maxArtistAdjustedAverage}%;">
+              </div>
+            </div>
+          </td>
+
         </tr>
       </tbody>
     </table>
