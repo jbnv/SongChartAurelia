@@ -12,6 +12,7 @@ function configForSongChartData(config) {
 export class Data {
   title = "";
   fetchRoute = "";
+  slug = "";
 
   massage(data) {}
 
@@ -21,6 +22,7 @@ export class Data {
   }
 
   activate(parameters,routeConfig) {
+    this.slug = parameters.slug;
     let fetchRoute = this.fetchRoute;
     if (this.fetchRouteFn) {
       fetchRoute = this.fetchRouteFn(parameters);
