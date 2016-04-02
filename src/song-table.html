@@ -72,7 +72,12 @@
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
 
-        <td show.bind="!columns.title.hidden"><a href="#/song/${song.instanceSlug}">${song.title}</a></td>
+        <td show.bind="!columns.title.hidden">
+          <a href="#/song/${song.instanceSlug}">${song.title}</a>
+          <span class="small" if.bind="!columns.role.hidden && song.role !== true">
+            ${song.role}
+          </span>
+        </td>
 
         <td show.bind="!columns.artist.hidden">
           <span repeat.for="artist of song.artists">

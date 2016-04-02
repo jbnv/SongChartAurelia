@@ -15,6 +15,13 @@ export class Artist extends Data {
   score = 0.00;
   songAdjustedAverage = 0.00;
 
+  songTableModel = {
+    'showOnly':[
+      'rank','title','role','source','score',
+      'debutDate','debutRank','peakRank','duration'
+    ]
+  }
+
   massage = (inbound) => {
     this.title = inbound.title;
     this.complete = inbound.complete;
@@ -23,7 +30,7 @@ export class Artist extends Data {
     this.birth = inbound.birth;
     this.death = inbound.death;
     this.origin = inbound.origin;
-    this.songs = inbound.songs || [];
+    this.songTableModel.songs = inbound.songs || [];
     this.score = inbound.score || 0.00;
     this.songAdjustedAverage = inbound.songAdjustedAverage || 0.00;
   }
