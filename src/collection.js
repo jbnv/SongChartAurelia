@@ -7,6 +7,11 @@ export class Collection extends Data {
   sortColumn = "title";
   sortOrder = true; // true = normal; false = reverse;
 
+  maxSongCount = 0.00;
+  maxSongAdjustedAverage = 0.00;
+  maxArtistCount = 0.00;
+  maxArtistAdjustedAverage = 0.00;
+
   sort(column,fn) {
 
     if (this.sortColumn == column) {
@@ -43,6 +48,25 @@ export class Collection extends Data {
   sortByScore()       { this.sort("score"); }
   sortBySAA()         { this.sort("songAdjustedAverage"); }
   sortByAAA()         { this.sort("artistAdjustedAverage"); }
+
+  aggregate() {
+
+    this.content.forEach(item => {
+      if (item.songCount > this.maxSongCount) {
+        this.maxSongCount = item.songCount;
+      }
+      if (item.songAdjustedAverage > this.maxSongAdjustedAverage) {
+        this.maxSongAdjustedAverage = item.songAdjustedAverage;
+      }
+      if (item.ArtistCount > this.maxArtistCount) {
+        this.maxArtistCount = item.ArtistCount;
+      }
+      if (item.ArtistAdjustedAverage > this.maxArtistAdjustedAverage) {
+        this.maxArtistAdjustedAverage = item.ArtistAdjustedAverage;
+      }
+    });
+
+  }
 
   massage = (inbound) => {
     this.content = inbound;
