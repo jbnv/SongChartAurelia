@@ -31,6 +31,7 @@ export class Data {
       .then(response => response.json())
       .then(data => {
         data.instanceSlug = data.instanceSlug || parameters.slug;
+        Object.keys(data).forEach(key => this[key] = data[key]);
         this.massage(data);
         routeConfig.navModel.setTitle(this.title);
       });
