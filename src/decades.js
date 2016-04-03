@@ -18,6 +18,7 @@ export class Decades extends Collection {
     this.content = [];
     Object.keys(inbound.decades).forEach(key => {
       let decade = inbound.decades[key];
+      decade.slug = key;
       decade.title = key;
       this.content.push(decade);
     });
