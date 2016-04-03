@@ -76,9 +76,11 @@ export class ArtistTable extends Collection {
     this.content = data.artists;
 
     // Make sure that each artist has good data.
-    this.content.forEach(function(artist) {
+    this.content.forEach(artist => {
       if (!artist.songs) artist.songs = [];
     });
+
+    this.aggregate();
 
     if (data.showOnly) {
       Columns.prototype.showOnly.apply(this.columns,data.showOnly);
