@@ -59,14 +59,14 @@
         </td>
 
         <td show.bind="!columns.songCount.hidden" style="text-align:right">
-          <span if.bind="artist.songs.length > 0">${artist.songs.length || 0}</span>
+          <span if.bind="artist.songCount > 0">${artist.songCount || 0}</span>
         </td>
 
         <td>
           <div class="progress" style="width:5em">
             <div class="progress-bar progress-bar-info" role="progressbar"
-              aria-valuenow.bind="artist.songs.length" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
-              style="width: ${100*artist.songs.length/maxSongCount}%;">
+              aria-valuenow.bind="artist.songCount" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
+              style="width: ${100*artist.songCount/maxSongCount}%;">
             </div>
           </div>
         </td>
