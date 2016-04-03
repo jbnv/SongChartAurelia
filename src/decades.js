@@ -1,27 +1,28 @@
-import {Data} from './data';
+import {Columns} from './columns';
+import {Collection} from './collection';
 
-export class Decades extends Data {
+export class Decades extends Collection {
 
   fetchRouteFn = (parameters) => 'eras'; // returns array of songs
 
-  title = 'Decades';
-  decades = [];
-  maxSongCount = 0;
-  maxArtistCount = 0;
+  artists = [];
 
-  constructor(http) {
-    super(http);
-  }
+  columns = new Columns({
+    'title': 'Name',
+    'songCount': 'Songs',
+    'score': 'Score',
+    'songAdjustedAverage': 'SAA',
+  });
 
   massage = (inbound) => {
+    this.content = [];
     Object.keys(inbound.decades).forEach(key => {
-      let songCount = inbound.decades[key];
-      let artistCount = 0; //LATER
-      this.decades.push({slug:key,songCount:songCount});
-      if (songCount > this.maxSongCount) this.maxSongCount = songCount;
-      if (artistCount > this.maxArtistCount) this.maxArtistCount = artistCount;
+      let decade = inbound.decades[key];
+      decade.title = key;
+      this.content.push(decade);
     });
-    this.decades = this.decades.sort((a,b) => a.slug > b.slug);
+    this.aggregate();
+    this.content = this.content.sort((a,b) => a.slug > b.slug);
   }
 
 }

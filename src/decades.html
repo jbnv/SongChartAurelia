@@ -1,35 +1,79 @@
 <template>
+  <require from="./decimal"></require>
+
   <section>
     <h2>Decades</h2>
   </section>
 
   <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-2 col-xs-1">
-        </div>
-        <div class="col-lg-6 col-md-8 col-xs-10">
+    <table class="table table-hover">
+      <thead>
 
-          <div class="container">
-            <div class="row" repeat.for="decade of decades">
-              <div class="col-xs-1"><a href="#/decade/${decade.slug}">${decade.slug}</a></div>
-              <div class="col-xs-4">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-info" role="progressbar"
-                    aria-valuenow.bind="decade.songCount" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
-                    style="width: ${100*decade.songCount/maxSongCount}%;">
-                  </div>
-                </div>
+        <tr>
+
+          <th show.bind="!columns.title.hidden" class="${sortColumn === 'title' ? 'active' : ''}">
+            <a click.trigger="sortByTitle()">Decade</a>
+          </th>
+
+          <th show.bind="!columns.songCount.hidden" class="${sortColumn === 'songCount' ? 'active' : ''}" colspan=2 style="text-align:center">
+            <a click.trigger="sortBySongCount()">Songs</a>
+          </th>
+
+          <th show.bind="!columns.score.hidden" class="${sortColumn === 'score' ? 'active' : ''}" style="text-align:right">
+            <a click.trigger="sortByScore()">Score</a>
+          </th>
+
+          <th show.bind="!columns.songAdjustedAverage.hidden" class="${sortColumn === 'songAdjustedAverage' ? 'active' : ''}" colspan=2 style="text-align:center">
+            <a click.trigger="sortBySAA()">SAA</a>
+          </th>
+
+      	</tr>
+
+      </thead>
+      <tbody>
+
+        <tr repeat.for="decade of content">
+
+          <td show.bind="!columns.title.hidden">
+            <a href="#/decade/${decade.instanceSlug}">${decade.title}</a>
+          </td>
+
+          <td show.bind="!columns.songCount.hidden" style="text-align:right">
+            ${decade.songCount}
+          </td>
+
+          <td>
+            <div class="progress" style="width:5em">
+              <div class="progress-bar progress-bar-info" role="progressbar"
+                aria-valuenow.bind="decade.songCount" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
+                style="width: ${100*decade.songCount/maxSongCount}%;">
               </div>
-              <div class="col-xs-1 text-right">${decade.songCount}</div>
             </div>
-          </div>
+          </td>
 
-        </div>
-        <div class="col-lg-3 col-md-2 col-xs-1">
-        </div>
-      </div>
-    </div>
+          <td show.bind="!columns.score.hidden" style="text-align:right">
+            <span if.bind="decade.score > 0">${decade.score | decimal:2}</span></td>
+          </td>
+
+          <td show.bind="!columns.scoreAdjustedAverage.hidden" style="text-align:right">
+            <span if.bind="decade.score > 0">${decade.songAdjustedAverage | decimal:2}</span></td>
+          </td>
+
+          <td>
+            <div class="progress" style="width:5em">
+              <div class="progress-bar progress-bar-info" role="progressbar"
+                aria-valuenow.bind="decade.songAdjustedAverage" aria-valuemin="0" aria-valuemax.bind="maxSongAdjustedAverage"
+                style="width: ${100*decade.songAdjustedAverage/maxSongAdjustedAverage}%;">
+              </div>
+            </div>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
   </section>
 
 </template>
