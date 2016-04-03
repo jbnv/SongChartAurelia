@@ -5,6 +5,10 @@
   </section>
 
   <section>
+    <b>SAA</b> ${songAdjustedAverage}
+  </section>
+
+  <section>
     <nav>
       <ul class="pagination">
         <li>
@@ -13,7 +17,7 @@
           </a>
         </li>
         <li repeat.for="year of years">
-          <a href="#/year/${year}">${year}</a>
+          <a href="#/year/${year.slug}">${year.title}</a>
         </li>
         <li>
           <a href="#/decade/${year0+10}s">
@@ -22,6 +26,10 @@
         </li>
       </ul>
     </nav>
+  </section>
+
+  <section>
+    <h3>Songs <span class="badge">${songs.length}</span></h3>
   </section>
 
   <section>

@@ -4,23 +4,24 @@ export class Decade extends Data {
 
   fetchRouteFn = (parameters) => 'era/'+parameters.slug; // returns array of songs
 
-  title = '(Decade)';
-  slug = "";
+  score = 0.00;
+  songAdjustedAverage = 0.00;
+
   songs = [];
   years = [];
   year0 = 0;
+
+  previous = {};
+  next = {};
 
   constructor(http) {
     super(http);
   }
 
   massage = (inbound) => {
-    this.title = "Decade: "+inbound.instanceSlug;
-    this.slug = inbound.instanceSlug;
-    this.songs = inbound;
-
+    this.songs = this.songs || [];
+    this.years = this.years || [];
     this.year0 = parseInt(inbound.instanceSlug.substring(0,4));
-    this.years = [0,1,2,3,4,5,6,7,8,9].map(d => this.year0+d);
   }
 
 }
