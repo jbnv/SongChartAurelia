@@ -77,6 +77,7 @@ export class ArtistTable extends Collection {
 
     // Make sure that each artist has good data.
     this.content.forEach(artist => {
+      if (typeof artist === 'string') artist = {instanceSlug:artist};
       if (!artist.songs) artist.songs = [];
     });
 
