@@ -5,23 +5,11 @@
   </section>
 
   <section>
-    <nav>
-      <ul class="pagination">
-        <li>
-          <a href="#/year/${year-1}">
-            <i class="fa fa-chevron-left"></i> ${year-1}
-          </a>
-        </li>
-        <li repeat.for="month of months">
-          <a href="#/month/${slug}-${month.slug}">${month.abbr}</a>
-        </li>
-        <li>
-          <a href="#/year/${year+1}">
-            ${year+1} <i class="fa fa-chevron-right"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <b>SAA</b> ${songAdjustedAverage}
+  </section>
+
+  <section>
+    <compose view-model="page-nav" model.bind="pageNavModel"></compose>
   </section>
 
   <section>

@@ -17,10 +17,15 @@ export class Year extends Data {
   }
 
   massage = (inbound) => {
-    this.title = "Year: "+inbound.instanceSlug;
-    this.year = parseInt(inbound.instanceSlug);
-    this.slug = inbound.instanceSlug;
-    this.songs = inbound;
+    this.songs = this.songs || [];
+    this.months = this.months || [];
+    this.previous.route = `month/${this.previous.slug}`;
+    this.next.route = `month/${this.next.slug}`;
+    this.pageNavModel = {
+      previous: this.previous,
+      next: this.next,
+      pages: this.months.map(function(m) { return { title: m.title.substring(0,3), route: "month/"+m.slug };})
+    };
   }
 
 }
