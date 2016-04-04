@@ -6,6 +6,7 @@ export class Artist extends Data {
 
   title = '(Artist)';
   complete = false;
+  active = false;
   type = {slug: "", title: "NOT SET"};
   genres = [];
   birth = "";
@@ -23,13 +24,8 @@ export class Artist extends Data {
   }
 
   massage = (inbound) => {
-    this.title = inbound.title;
-    this.complete = inbound.complete;
     this.type = inbound.type || {slug: "", title: "NOT SET"};
     this.genres = inbound.genres || [];
-    this.birth = inbound.birth;
-    this.death = inbound.death;
-    this.origin = inbound.origin;
     this.songTableModel.songs = inbound.songs || [];
     this.score = inbound.score || 0.00;
     this.songAdjustedAverage = inbound.songAdjustedAverage || 0.00;
