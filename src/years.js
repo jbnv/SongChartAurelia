@@ -1,26 +1,26 @@
-import {Data} from './data';
+import {Columns} from './columns';
+import {Collection} from './collection';
 
-export class Years extends Data {
+export class Years extends Collection {
 
   fetchRouteFn = (parameters) => 'eras'; // returns array of songs
 
-  title = 'Years';
-  years = [];
-  maxSongCount = 0;
-  maxArtistCount = 0;
-
-  constructor(http) {
-    super(http);
-  }
+  columns = new Columns({
+    'title': 'Name',
+    'songCount': 'Songs',
+    'score': 'Score',
+    'songAdjustedAverage': 'SAA',
+  });
 
   massage = (inbound) => {
+    this.content = [];
     Object.keys(inbound.years).sort().forEach(key => {
-      let songCount = inbound.years[key];
-      let artistCount = 0; //LATER
-      this.years.push({slug:key,songCount:songCount});
-      if (songCount > this.maxSongCount) this.maxSongCount = songCount;
-      if (artistCount > this.maxArtistCount) this.maxArtistCount = artistCount;
+      let year = inbound.years[key];
+      year.slug = key;
+      year.title = key;
+      this.content.push(year);
     });
+    this.aggregate();
   }
 
 }
