@@ -1,15 +1,30 @@
 <template>
 
   <section>
-    <h2>${title}</h2>
-  </section>
-
-  <section>
-    <b>SAA</b> ${songAdjustedAverage}
+    <h2>
+      ${title}
+      <span class="small"><b>SAA</b> ${songAdjustedAverage}</span>
+    </h2>
   </section>
 
   <section>
     <compose view-model="page-nav" model.bind="pageNavModel"></compose>
+  </section>
+
+  <section>
+    <h3>Counts by Year</h3>
+  </section>
+
+  <section>
+    <compose view-model="scale-graph" model.bind="countScales"></compose>
+  </section>
+
+  <section>
+    <h3>SAAs by Year</h3>
+  </section>
+
+  <section>
+    <compose view-model="scale-graph" model.bind="aaScales"></compose>
   </section>
 
   <section>

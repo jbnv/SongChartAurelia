@@ -15,6 +15,8 @@ export class Decade extends Data {
   next = {};
 
   pageNavModel = {};
+  countScales = [];
+  aaScales = [];
 
   constructor(http) {
     super(http);
@@ -31,6 +33,13 @@ export class Decade extends Data {
       next: this.next,
       pages: this.years.map(function(y) { return { title: y.title, route: "year/"+y.slug };})
     };
+
+    this.countScales = [];
+    this.aaScales = [];    
+    this.years.forEach(year => {
+      this.countScales.push({title: year.title, scale: year.songCountScale});
+      this.aaScales.push({title: year.title, scale: year.songAdjustedAverageScale});
+    });
 
   }
 
