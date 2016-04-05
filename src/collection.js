@@ -52,6 +52,15 @@ export class Collection extends Data {
   aggregate() {
 
     this.content.forEach(item => {
+
+      if (item.songs && item.songs.length > 0) {
+        item.songCount = item.songs.length;
+      }
+
+      if (item.artists && item.artists.length > 0) {
+        item.artistCount = item.artists.length;
+      }
+
       if (item.songCount > this.maxSongCount) {
         this.maxSongCount = item.songCount;
       }
