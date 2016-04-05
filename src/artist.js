@@ -1,4 +1,5 @@
 import {Data} from './data';
+import numeral from 'numeral';
 
 export class Artist extends Data {
 
@@ -27,8 +28,9 @@ export class Artist extends Data {
     this.type = inbound.type || {slug: "", title: "NOT SET"};
     this.genres = inbound.genres || [];
     this.songTableModel.songs = inbound.songs || [];
-    this.score = inbound.score || 0.00;
-    this.songAdjustedAverage = inbound.songAdjustedAverage || 0.00;
+    this.score = numeral(inbound.score || 0).format("0.00");
+    this.songAdjustedAverage = numeral(inbound.songAdjustedAverage || 0).format("0.00");
+    console.log("artist.js:massage",this.score,this.songAdjustedAverage);
   }
 
 }
