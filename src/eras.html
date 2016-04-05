@@ -1,0 +1,19 @@
+<template>
+
+  <section>
+    <h2>Summary of Eras</h2>
+  </section>
+
+  <section>
+    <h3>Song Counts</h3>
+    <compose view-model="scale-graph" model.bind="decadeCountScales"></compose>
+    <compose view-model="scale-graph" model.bind="yearCountScales"></compose>
+  </section>
+
+  <section>
+    <h3>SAAs</h3>
+    <compose view-model="scale-graph" model.bind="decadeAaScales"></compose>
+    <compose view-model="scale-graph" model.bind="yearAaScales"></compose>
+  </section>
+
+</template>
