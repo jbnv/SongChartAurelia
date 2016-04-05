@@ -179,6 +179,23 @@ div.au-stagger {
     margin-bottom: 0 !important;
 }
 
+.graph {
+  height: 50px;
+  background-color: #eaeaea;
+}
+
+.vertical-bar {
+  display: inline-block;
+  position: relative;
+  background-color: #aeaeae;
+  vertical-align: baseline;
+}
+
+.vertical-bar-title {
+  display: inline-block;
+  text-align:center;
+}
+
 /* Custom symbols. */
 
 .fa-artist:before { content:"\f007" } /* user */
