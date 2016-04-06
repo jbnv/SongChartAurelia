@@ -1,5 +1,35 @@
 <template>
   <section>
-    <h2>${title}</h2>
+    <h2>${title} <span class="small">#${rank}</span></h2>
   </section>
+
+  <section>
+    <table class="table">
+      <tr>
+        <th>Artists</th>
+      </tr>
+      <tr>
+        <th>Genres</th>
+      </tr>
+      <tr>
+        <th>Source</th>
+      </tr>
+      <tr>
+        <th>Playlists</th>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h3>Scores</h3>
+  </section>
+
+  <section>
+    <div class="graph">
+      <div class="vertical-bar"
+          style="width: ${100/scores.length}%; height: ${100*score}%;"
+          repeat.for="score of scores"></div>
+    </div>
+  </section>
+
 </template>
