@@ -1,30 +1,88 @@
 <template>
+  <require from="./decimal"></require>
+
   <section>
-    <h2>${title} <span class="small">#${rank}</span></h2>
+    <h2>${title} <span class="small" if.bind="score > 0">${score | decimal:2} #${rank}</span></h2>
   </section>
 
   <section>
     <table class="table">
       <tr>
+        <th>Debut</th>
+        <td>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6">${debutEra.title}</div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
         <th>Artists</th>
+        <td>
+          <div class="container">
+            <div class="row" repeat.for="artist of artists">
+              <div class="col-xs-6">
+                <a href="#/artist/${artist.slug}">${artist.title}</a>
+                <span class="small text-muted" if.bind="artist.roleSlug !== true">${artist.roleSlug}</span>
+              </div>
+              <div class="col-xs-1 text-right">${artist.rank}</div>
+              <div class="col-xs-5">${artist.count} RANK-BAR</div>
+            </div>
+          </div>
+        </td>
       </tr>
       <tr>
         <th>Genres</th>
+        <td>
+          <div class="container">
+            <div class="row" repeat.for="genre of genres">
+              <div class="col-xs-6">
+                <a href="#/genre/${genre.slug}">${genre.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${genre.rank}</div>
+              <div class="col-xs-5">${genre.count} RANK-BAR</div>
+            </div>
+          </div>
+        </td>
       </tr>
       <tr>
         <th>Source</th>
+        <td>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#/source/${source.slug}">${source.title}</a>
+                <!-- TODO Type icon -->
+              </div>
+              <div class="col-xs-1 text-right">${source.rank}</div>
+              <div class="col-xs-5">${source.count} RANK-BAR</div>
+            </div>
+          </div>
+        </td>
       </tr>
       <tr>
         <th>Playlists</th>
+        <td>
+          <div class="container">
+            <div class="row" repeat.for="playlist of playlists">
+              <div class="col-xs-6">
+                <a href="#/playlist/${playlist.slug}">${playlist.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${playlist.rank}</div>
+              <div class="col-xs-5">${playlist.count} RANK-BAR</div>
+            </div>
+          </div>
+        </td>
       </tr>
     </table>
   </section>
 
-  <section>
+  <section if.bind="score > 0">
     <h3>Scores</h3>
   </section>
 
-  <section>
+  <section if.bind="score > 0">
     <div class="graph">
       <div class="vertical-bar"
           style="width: ${100/scores.length}%; height: ${100*score}%;"
