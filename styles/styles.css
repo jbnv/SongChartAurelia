@@ -196,6 +196,16 @@ div.au-stagger {
   text-align:center;
 }
 
+.horizontal-bar-cell {
+  background-color: #eaeaea;
+}
+
+.horizontal-bar {
+  /*display: inline-block;*/
+  /*position: relative;*/
+  background-color: #aeaeae;
+}
+
 /* Custom symbols. */
 
 .fa-artist:before { content:"\f007" } /* user */
