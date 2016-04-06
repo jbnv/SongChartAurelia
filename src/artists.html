@@ -1,7 +1,27 @@
 <template>
 
   <section>
-    <h2>Artists <span class="badge">${content.length}</span></h2>
+    <h2>
+      Artists <span class="badge">${content.length}</span>
+      <!-- <a click.trigger="toggleFilters()"><i class="fa fa-filter"></i></a> -->
+    </h2>
+  </section>
+
+  <section>
+    <ul class="nav nav-pills">
+      <li role="presentation">
+        <a href="#/artists/incomplete"><i class="fa fa-exclamation-circle"></i></a>
+      </li>
+      <li role="presentation">
+        <a href="#/artist-type/m"><i class="fa fa-artist-type-m"></i></a>
+      </li>
+      <li role="presentation">
+        <a href="#/artist-type/f"><i class="fa fa-artist-type-f"></i></a>
+      </li>
+      <li role="presentation">
+        <a href="#/artist-type/g"><i class="fa fa-artist-type-g"></i></a>
+      </li>
+    </ul>
   </section>
 
   <section>
