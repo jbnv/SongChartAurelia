@@ -1,11 +1,12 @@
 <template>
 
-  <section>
-    <h2>${title}</h2>
-  </section>
+  <require from="./decimal"></require>
 
   <section>
-    <b>SAA</b> ${songAdjustedAverage}
+    <h2>
+      ${title}
+      <span class="small">${songAdjustedAverage | decimal:2}<span>
+    </h2>
   </section>
 
   <section>
