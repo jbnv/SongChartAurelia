@@ -19,8 +19,8 @@ export class Year extends Data {
   massage = (inbound) => {
     this.songs = this.songs || [];
     this.months = this.months || [];
-    this.previous.route = `month/${this.previous.slug}`;
-    this.next.route = `month/${this.next.slug}`;
+    this.previous.route = `year/${this.previous.slug}`;
+    this.next.route = `year/${this.next.slug}`;
     this.pageNavModel = {
       previous: this.previous,
       next: this.next,
