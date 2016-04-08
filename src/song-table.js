@@ -180,4 +180,8 @@ export class SongTable extends Collection {
 
     this.sort(data.sort || 'score');
   }
+
+  titleArtists(artists) {
+    return artists.filter(a => a.roleSlug === true);
+  }
 }
