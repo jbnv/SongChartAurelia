@@ -1,0 +1,11 @@
+<template>
+
+  <section>
+    <h2>Active Artists <span class="badge">${content.length}</span></h2>
+  </section>
+
+  <section>
+    <compose view-model="artist-table" model.bind="{'artists':content,'hide':['complete']}"></compose>
+  </section>
+
+</template>
