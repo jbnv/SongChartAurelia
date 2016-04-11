@@ -11,8 +11,10 @@ function configForSongChartData(config) {
 @inject(HttpClient)
 export class Data {
   title = "";
+  subtitle = "";
   fetchRoute = "";
   slug = "";
+  parameters = {};
 
   massage(data) {}
 
@@ -22,6 +24,7 @@ export class Data {
   }
 
   activate(parameters,routeConfig) {
+    this.parameters = parameters;
     this.slug = parameters.slug;
     let fetchRoute = this.fetchRoute;
     if (this.fetchRouteFn) {
