@@ -1,0 +1,22 @@
+.title-artist-:before { content: "Artists" }
+.title-artist-complete:before { content: "Complete Artists" }
+.title-artist-incomplete:before { content: "Incomplete Artists" }
+.title-artist-active:before { content: "Active Artists" }
+
+.fa-artist-complete:before { content: "\f00c" } /* check */
+.fa-artist-incomplete:before { content: "\f06a" } /* exclamation-circle */
+.fa-artist-active:before { content: "\f04b" } /* play */
+
+.fa-artist-type-m:before { content: "\f183" } /* male */
+.fa-artist-type-f:before { content: "\f182" } /* female */
+.fa-artist-type-d:before { content: "\f183\f183" }
+.fa-artist-type-g:before { content: "\f183\f183\f183" }
+.fa-artist-type-mm:before { content: "\f183\f183" }
+.fa-artist-type-mf:before { content: "\f183\f182" }
+.fa-artist-type-fm:before { content: "\f182\f183" }
+.fa-artist-type-ff:before { content: "\f182\f182" }
+.fa-artist-type-mmm:before { content: "\f183\f183\f183" }
+.fa-artist-type-mmf:before { content: "\f183\f183\f182" }
+.fa-artist-type-fmm:before { content: "\f182\f183\f183" }
+.fa-artist-type-ffm:before { content: "\f182\f182\f183" }
+.fa-artist-type-fff:before { content: "\f182\f182\f182" }
