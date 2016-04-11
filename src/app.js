@@ -24,6 +24,7 @@ export class App {
       { route: 'playlists',      name: 'playlists', moduleId: 'playlists', title: 'Playlists' },
       { route: 'song/:slug',     name: 'song', moduleId: 'song', title: 'Song' },
       { route: 'songs',          name: 'songs', moduleId: 'songs', title: 'Songs' },
+      { route: 'songs/unscored', name: 'unscored-songs', moduleId: 'unscored-songs', title: 'Unscored Songs' },
       { route: 'source/:slug',   name: 'source', moduleId: 'source', title: 'Source' },
       { route: 'sources',        name: 'sources', moduleId: 'sources', title: 'Sources' },
       { route: 'year/:slug',     name: 'year', moduleId: 'year' },
