@@ -38,6 +38,24 @@
         <th>SAA</th>
         <td class="text-right">${songAdjustedAverage}</td>
       </tr>
+      <tr show.bind="members && members.length > 1">
+        <th>Member${members.length > 1 ? 's' : ''}</th>
+        <td colspan=5>
+          <span repeat.for="artist of members">
+            <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+            <span if.bind="!$last">|</span>
+          </span>
+        </td>
+      </tr>
+      <tr show.bind="xref && xref.length > 1">
+        <th>Related/Associated</th>
+        <td colspan=5>
+          <span repeat.for="artist of xref">
+            <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+            <span if.bind="!$last">|</span>
+          </span>
+        </td>
+      </tr>
     </table>
   </section>
 
