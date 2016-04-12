@@ -1,4 +1,5 @@
 <template>
+  <require from="/styles/artist.css"></require>
 
   <section>
     <h2>
@@ -11,6 +12,7 @@
 
   <section>
     <table class="table">
+
       <tr>
         <th>Genre${genres.length > 1 ? 's' : ''}</th>
         <td colspan=5>
@@ -20,6 +22,7 @@
           </span>
         </td>
       </tr>
+
       <tr>
         <th>Gender/Type</th>
         <td>
@@ -30,6 +33,7 @@
         <th>Score</th>
         <td class="text-right">${score}</td>
       </tr>
+
       <tr>
         <th>Origin</th>
         <td><a href="#/location/${origin.instanceSlug}">${origin.title}</a></td>
@@ -38,7 +42,8 @@
         <th>SAA</th>
         <td class="text-right">${songAdjustedAverage}</td>
       </tr>
-      <tr show.bind="members && members.length > 1">
+
+      <tr show.bind="members && members.length > 0">
         <th>Member${members.length > 1 ? 's' : ''}</th>
         <td colspan=5>
           <span repeat.for="artist of members">
@@ -47,7 +52,8 @@
           </span>
         </td>
       </tr>
-      <tr show.bind="xref && xref.length > 1">
+
+      <tr show.bind="xref && xref.length > 0">
         <th>Related/Associated</th>
         <td colspan=5>
           <span repeat.for="artist of xref">
@@ -56,6 +62,17 @@
           </span>
         </td>
       </tr>
+
+      <tr show.bind="tags && tags.length > 0">
+        <th>Tag${tags.length > 1 ? 's' : ''}/List${tags.length > 1 ? 's' : ''}</th>
+        <td colspan=5>
+          <span repeat.for="tag of tags">
+            <a href="#/tag/${tag.instanceSlug}">${tag.title}</a>
+            <span if.bind="!$last">|</span>
+          </span>
+        </td>
+      </tr>
+
     </table>
   </section>
 

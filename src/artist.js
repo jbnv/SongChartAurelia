@@ -22,6 +22,7 @@ export class Artist extends Data {
     this.genres = inbound.genres || [];
     this.members = inbound.members || [];
     this.xref = inbound.xref || [];
+    this.tags = inbound.tags || [];
     this.songTableModel = {
       'showOnly':[
         'rank','title','role','source','score',
