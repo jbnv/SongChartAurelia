@@ -16,9 +16,13 @@ export class Artist extends Data {
   songs = [];
   score = 0.00;
   songAdjustedAverage = 0.00;
+  status = "";
 
   massage = (inbound) => {
     this.type = inbound.type || {slug: "", title: "NOT SET"};
+    this.status
+      = inbound.complete ? "complete"
+      : inbound.active ? "active" : "incomplete";
     this.genres = inbound.genres || [];
     this.members = inbound.members || [];
     this.xref = inbound.xref || [];
