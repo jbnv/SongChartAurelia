@@ -19,13 +19,19 @@ export class Song extends Data {
           entity = this.artists.filter(a => a.slug == instanceSlug)[0];
           break;
         case "genre":
-          entity = this.genres.filter(a => a.slug == instanceSlug)[0];
+          entity = this.genres.filter(a => a.instanceSlug == instanceSlug)[0];
           break;
         case "playlist":
-          entity = this.playlists.filter(a => a.slug == instanceSlug)[0];
+          entity = this.playlists.filter(a => a.instanceSlug == instanceSlug)[0];
           break;
         case "source":
           entity = this.source || {};
+          break;
+        case "decade":
+          entity = this.decade = {"instanceSlug":key};
+          break;
+        case "year":
+          entity = this.year = {"instanceSlug":key};
           break;
       }
       if (entity) {

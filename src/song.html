@@ -11,8 +11,25 @@
         <th>Debut</th>
         <td>
           <div class="container">
-            <div class="row">
-              <div class="col-xs-6">${debutEra.title}</div>
+            <div class="row" show.bind="decade">
+              <div class="col-xs-5">${debutEra.title}</div>
+              <div class="col-xs-1 text-right">
+                <a href="#/decade/${debutEra.decade}s">${debutEra.decade}s</a>
+              </div>
+              <div class="col-xs-1 text-right">${decade.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="decade"></compose>
+              </div>
+            </div>
+            <div class="row" show.bind="year">
+              <div class="col-xs-5">&nbsp;</div>
+              <div class="col-xs-1 text-right">
+                <a href="#/year/${debutEra.year}">${debutEra.year}</a>
+              </div>
+              <div class="col-xs-1 text-right">${year.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="year"></compose>
+              </div>
             </div>
           </div>
         </td>
