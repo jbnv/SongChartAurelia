@@ -4,6 +4,7 @@ export class RankBar {
   count = 1;
 
   activate(data) {
+    if (!data) return;
     this.rank = data.rank;
     this.count = data.count;
   }
