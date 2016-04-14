@@ -1,19 +1,23 @@
 <template>
+  <require from="/styles/song.css"></require>
 
   <section>
     <h2>
-      Songs
+      <span class="title-song-${filter}"></span>
       <span class="small">${subtitle}</span>
     </h2>
   </section>
 
   <section>
     <ul class="nav nav-pills">
-      <li role="presentation" class="active">
+      <li role="presentation" class.bind="!filter ? 'active' : ''">
         <a href="#/songs">Top 100</a>
       </li>
-      <li role="presentation">
+      <li role="presentation" class.bind="filter === 'unscored' ? 'active' : ''">
         <a href="#/songs/unscored">Unscored</a>
+      </li>
+      <li role="presentation" class.bind="filter === 'sample' ? 'active' : ''">
+        <a href="#/songs/sample">Sample</a>
       </li>
     </ul>
   </section>

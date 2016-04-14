@@ -1,0 +1,3 @@
+.title-song-:before { content: "Songs" }
+.title-song-unscored:before { content: "Unscored Songs" }
+.title-song-sample:before { content: "Sample of Songs" }
