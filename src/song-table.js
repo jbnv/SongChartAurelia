@@ -167,7 +167,7 @@ export class SongTable extends Collection {
 
   activate(data) {
 
-    this.content = data.songs;
+    this.content = data.songs || [];
 
     // Make sure that each song has good data.
     this.content.forEach(function(song) {
