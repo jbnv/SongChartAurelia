@@ -5,6 +5,7 @@
     <h2>
       ${title}
       <i class="fa fa-artist-${status}"></i>
+      <span class="small">${songAdjustedAverage}</span>
     </h2>
   </section>
 
@@ -12,62 +13,88 @@
     <table class="table">
 
       <tr>
-        <th>Genre${genres.length > 1 ? 's' : ''}</th>
-        <td colspan=5>
-          <span repeat.for="genre of genres">
-            <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
-            <span if.bind="!$last">|</span>
-          </span>
-        </td>
-      </tr>
-
-      <tr>
-        <th>Gender/Type</th>
+        <th>Demographics</th>
         <td>
-          <i class="fa fa-artist-type-${type.slug}"></i> ${type.title}
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <b>Gender/Type</b>
+                <i class="fa fa-artist-type-${type.slug}"></i> ${type.title}
+                <b show.bind="origin">&nbsp; Origin</b>
+                <a href="#/location/${origin.instanceSlug}">${origin.title}</a>
+                <b show.bind="birth">&nbsp; Birth</b>
+                <a href="#/date/${birth}">${birth}</a>
+                <b show.bind="death">&nbsp; Death</b>
+                <a href="#/date/${death}">${death}</a>
+              </div>
+            </div>
+          </div>
         </td>
-        <th>Birth</th>
-        <td><a href="#/date/${birth}">${birth}</a></td>
-        <th>Score</th>
-        <td class="text-right">${score}</td>
       </tr>
 
-      <tr>
-        <th>Origin</th>
-        <td><a href="#/location/${origin.instanceSlug}">${origin.title}</a></td>
-        <th>Death</th>
-        <td><a href="#/date/${death}">${death}</a></td>
-        <th>SAA</th>
-        <td class="text-right">${songAdjustedAverage}</td>
+      <tr show.bind="genres.length > 0">
+        <th>Genre${genres.length > 1 ? 's' : ''}</th>
+        <td>
+          <div class="container">
+            <div class="row" repeat.for="genre of genres">
+              <div class="col-xs-6">
+                <a href="#/genre/${genre.slug}">${genre.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${genre.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="genre"></compose>
+              </div>
+            </div>
+          </div>
+        </td>
       </tr>
 
       <tr show.bind="members && members.length > 0">
         <th>Member${members.length > 1 ? 's' : ''}</th>
-        <td colspan=5>
-          <span repeat.for="artist of members">
-            <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
-            <span if.bind="!$last">|</span>
-          </span>
+        <td>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <span repeat.for="artist of members">
+                  <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+                  <span if.bind="!$last">|</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </td>
       </tr>
 
       <tr show.bind="xref && xref.length > 0">
         <th>Related/Associated</th>
-        <td colspan=5>
-          <span repeat.for="artist of xref">
-            <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
-            <span if.bind="!$last">|</span>
-          </span>
+        <td>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <span repeat.for="artist of xref">
+                  <a href="#/artist/${artist.instanceSlug}">${artist.title}</a>
+                  <span if.bind="!$last">|</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </td>
       </tr>
 
       <tr show.bind="tags && tags.length > 0">
         <th>Tag${tags.length > 1 ? 's' : ''}/List${tags.length > 1 ? 's' : ''}</th>
         <td colspan=5>
-          <span repeat.for="tag of tags">
-            <a href="#/tag/${tag.instanceSlug}">${tag.title}</a>
-            <span if.bind="!$last">|</span>
-          </span>
+          <div class="container">
+            <div class="row" repeat.for="tag of tags">
+              <div class="col-xs-6">
+                <a href="#/tag/${tag.slug}">${tag.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${tag.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="tag"></compose>
+              </div>
+            </div>
+          </div>
         </td>
       </tr>
 
