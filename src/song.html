@@ -52,7 +52,7 @@
         </td>
       </tr>
       <tr show.bind="genres.length > 0">
-        <th>Genres</th>
+        <th>Genre${genres.length > 1 ? 's' : ''}</th>
         <td>
           <div class="container">
             <div class="row" repeat.for="genre of genres">
