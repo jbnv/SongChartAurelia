@@ -36,6 +36,31 @@ export class Artist extends Data {
     this.songTableModel.songs = inbound.songs || [];
     this.score = numeral(inbound.score || 0).format("0.00");
     this.songAdjustedAverage = numeral(inbound.songAdjustedAverage || 0).format("0.00");
-  }
 
+    // Pull out ranks and add them to their respective entities.
+    // (Could this maybe go on the server side?)
+    Object.keys(this.ranks).forEach(key => {
+      let rank = this.ranks[key];
+      let keyParts = key.split(":");
+      let typeSlug = keyParts[0];
+      let instanceSlug = keyParts[1];
+      let entity = null;
+      switch (typeSlug) {
+        case "genre":
+          entity = this.genres.filter(a => a.instanceSlug == instanceSlug)[0];
+          break;
+        case "origin":
+          entity = this.origin || {};
+          break;
+        case "tag":
+          entity = this.tags.filter(a => a.instanceSlug == instanceSlug)[0];
+          break;
+      }
+      if (entity) {
+        entity.rank = rank.rank;
+        entity.count = rank.total;
+      }
+    });
+
+  } // massage()
 }
