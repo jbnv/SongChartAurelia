@@ -20,12 +20,27 @@
               <div class="col-xs-12">
                 <b>Gender/Type</b>
                 <i class="fa fa-artist-type-${type.slug}"></i> ${type.title}
-                <b show.bind="origin">&nbsp; Origin</b>
-                <a href="#/location/${origin.instanceSlug}">${origin.title}</a>
                 <b show.bind="birth">&nbsp; Birth</b>
                 <a href="#/date/${birth}">${birth}</a>
                 <b show.bind="death">&nbsp; Death</b>
                 <a href="#/date/${death}">${death}</a>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr show.bind="origin">
+        <th>Origin</th>
+        <td>
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#/geo/${origin.slug}">${origin.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${origin.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="origin"></compose>
               </div>
             </div>
           </div>
