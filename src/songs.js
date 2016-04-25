@@ -12,6 +12,20 @@ export class Songs extends Data {
     return 'songs/'+parameters.filter;
   }
 
+  //TEMP Local copy -- wire to use the one in SongTable.
+  shuffle() {
+    // Durstenfeld shuffle algorithm.
+    console.log("shuffle() BEGIN"); //TEMP
+    for (var i = this.items.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = this.items[i];
+      this.items[i] = this.items[j];
+      this.items[j] = temp;
+    }
+    console.log("shuffle() DONE",this.items); //TEMP
+    return true; // needed for cross-component functionality
+  }
+
   subtitle = "";
 
   massage = (inbound) => {
@@ -21,7 +35,7 @@ export class Songs extends Data {
     } else {
       this.filter = null;
     }
-    
+
     if (this.parameters.filter === "sample") {
       this.subtitle = this.sampleSize;
       return;
