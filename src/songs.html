@@ -1,4 +1,5 @@
 <template>
+  <!--require from='./song-table'></require-->
   <require from="/styles/song.css"></require>
 
   <section>
@@ -23,7 +24,26 @@
   </section>
 
   <section>
-    <compose view-model="song-table" model.bind="{'songs':items,'showOnly':['rank','title','artist','score','debutDate','debutRank','peakRank','duration']}"></compose>
+    <div class="btn-toolbar" role="toolbar" aria-label="toolbar">
+      <div class="btn-group" role="group" aria-label="page-controls">
+        <button type="button" class="btn btn-default" click.trigger="refresh()">
+          <i class="fa fa-refresh"></i> Reload
+        </button>
+        <button type="button" class="btn btn-default" click.trigger="shuffle()">
+          <i class="fa fa-random"></i> Shuffle
+        </button>
+      </div>
+      <div class="btn-group" role="group" aria-label="filters">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <compose
+      view-model="song-table"
+      model.bind="{'songs':items,'showOnly':['rank','title','artist','score','debutDate','debutRank','peakRank','duration']}"
+      >
+    </compose>
   </section>
 
 </template>
