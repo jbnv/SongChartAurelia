@@ -39,7 +39,7 @@ export class Artist extends Data {
 
     // Pull out ranks and add them to their respective entities.
     // (Could this maybe go on the server side?)
-    Object.keys(this.ranks).forEach(key => {
+    Object.keys(this.ranks || {}).forEach(key => {
       let rank = this.ranks[key];
       let keyParts = key.split(":");
       let typeSlug = keyParts[0];
