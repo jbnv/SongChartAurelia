@@ -117,6 +117,10 @@
   </section>
 
   <section>
+    <compose view-model="year-scales" model.bind="songs"></compose>
+  </section>
+
+  <section>
     <h3>Songs <span class="badge">${songTableModel.songs.length}</span></h3>
     <compose view-model="song-table" model.bind="songTableModel"></compose>
   </section>
