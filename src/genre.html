@@ -5,6 +5,10 @@
   </section>
 
   <section>
+    <compose view-model="year-scales" model.bind="songs"></compose>
+  </section>
+
+  <section>
     <h3><a href="#/genre/${slug}/artists">Artists <span class="badge">${artists.length}</span></a></h3>
     <ul class="nav nav-pills">
       <li role="presentation" repeat.for="artist of artists">
