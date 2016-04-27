@@ -1,8 +1,6 @@
 <template>
   <div class="graph">
-    <div class="vertical-bar"
-        style="width: ${100/items.length}%; height: ${100*item.scale}%;"
-        repeat.for="item of items"></div>
+      <div class="vertical-bar ${item.highlight}" style="width: ${100/items.length}%; height: ${100*item.scale}%" repeat.for="item of items"></div>
   </div>
   <div style="width:100%">
     <div class="vertical-bar-title"

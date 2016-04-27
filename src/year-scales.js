@@ -39,8 +39,19 @@ export class YearScales {
 
     Object.keys(this.years).forEach(yearNumber => {
       let year = this.years[yearNumber];
-      this.countScales.push({title: year.title, scale: year.count/maxCount});
-      this.aaScales.push({title: year.title, scale: year.aa/maxAA});
+      let r = (year.aa/maxAA)/(year.count/maxCount);
+      let highlight = "";
+      if (r >= 1.2) {
+        highlight = "leader";
+      } else if (r <= 0.8) {
+        highlight = "lagger";
+      }
+      this.countScales.push({
+        title: year.title, scale: year.count/maxCount
+      });
+      this.aaScales.push({
+        title: year.title, scale: year.aa/maxAA, highlight: highlight
+      });
     });
 
   }

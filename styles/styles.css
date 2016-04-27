@@ -191,6 +191,14 @@ div.au-stagger {
   vertical-align: baseline;
 }
 
+.leader {
+  background-color: #489948; /* green */
+}
+
+.lagger {
+  background-color: #994848; /* red */
+}
+
 .vertical-bar-title {
   display: inline-block;
   text-align:center;
