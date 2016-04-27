@@ -1,5 +1,16 @@
 import {Data} from './data';
 
+function colorStyle(countScale,aaScale) {
+  let r = aaScale/countScale;
+  let highlight = "";
+  if (r >= 1.2) {
+    highlight = "leader";
+  } else if (r <= 0.8) {
+    highlight = "lagger";
+  }
+  return highlight;
+}
+
 export class Eras extends Data {
 
   fetchRouteFn = (parameters) => 'eras'; // returns array of songs
@@ -21,8 +32,15 @@ export class Eras extends Data {
       decade.slug = key;
       decade.title = key;
 
-      this.decadeCountScales.push({title: decade.title, scale: decade.songCountScale});
-      this.decadeAaScales.push({title: decade.title, scale: decade.songAdjustedAverageScale});
+      this.decadeCountScales.push({
+        title: decade.title,
+        scale: decade.songCountScale
+      });
+      this.decadeAaScales.push({
+        title: decade.title,
+        scale: decade.songAdjustedAverageScale,
+        highlight: colorStyle(decade.songCountScale,decade.songAdjustedAverageScale)
+      });
 
     });
 
@@ -33,8 +51,15 @@ export class Eras extends Data {
       year.title = key;
 
       var title = ""+year.title.substr(2,1)+" "+year.title.substr(3,1);
-      this.yearCountScales.push({title: title, scale: year.songCountScale});
-      this.yearAaScales.push({title: title, scale: year.songAdjustedAverageScale});
+      this.yearCountScales.push({
+        title: title,
+        scale: year.songCountScale
+      });
+      this.yearAaScales.push({
+        title: title,
+        scale: year.songAdjustedAverageScale,
+        highlight: colorStyle(year.songCountScale,year.songAdjustedAverageScale)
+      });
 
     });
   }
