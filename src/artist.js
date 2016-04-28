@@ -47,13 +47,13 @@ export class Artist extends Data {
       let entity = null;
       switch (typeSlug) {
         case "genre":
-          entity = this.genres.filter(a => a.instanceSlug == instanceSlug)[0];
+          entity = this.genres.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
         case "origin":
           entity = this.origin || {};
           break;
         case "tag":
-          entity = this.tags.filter(a => a.instanceSlug == instanceSlug)[0];
+          entity = this.tags.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
       }
       if (entity) {
