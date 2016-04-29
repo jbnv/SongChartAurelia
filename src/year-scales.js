@@ -8,6 +8,7 @@ export class YearScales {
 
   activate(songs) {
 
+    this.years = {};
     this.countScales = [];
     this.aaScales = [];
 

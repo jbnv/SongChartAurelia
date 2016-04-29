@@ -57,7 +57,7 @@
           <div class="container">
             <div class="row" repeat.for="genre of genres">
               <div class="col-xs-6">
-                <a href="#/genre/${genre.slug}">${genre.title}</a>
+                <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
               </div>
               <div class="col-xs-1 text-right">${genre.rank}</div>
               <div class="col-xs-5">
@@ -73,7 +73,7 @@
           <div class="container">
             <div class="row">
               <div class="col-xs-6">
-                <a href="#/source/${source.slug}">${source.title}</a>
+                <a href="#/source/${source.instanceSlug}">${source.title}</a>
                 <!-- TODO Type icon -->
               </div>
               <div class="col-xs-1 text-right">${source.rank}</div>
@@ -90,7 +90,7 @@
           <div class="container">
             <div class="row" repeat.for="playlist of playlists">
               <div class="col-xs-6">
-                <a href="#/playlist/${playlist.slug}">${playlist.title}</a>
+                <a href="#/playlist/${playlist.instanceSlug}">${playlist.title}</a>
               </div>
               <div class="col-xs-1 text-right">${playlist.rank}</div>
               <div class="col-xs-5">
