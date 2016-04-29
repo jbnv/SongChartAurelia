@@ -25,6 +25,10 @@
           Type
         </th>
 
+        <th show.bind="!columns.roles.hidden" style="text-align:center">
+          Roles
+        </th>
+
         <th show.bind="!columns.songCount.hidden" class="${sortColumn === 'songCount' ? 'active' : ''}" colspan=2>
           <a click.trigger="sortBySongCount()">Songs</a>
         </th>
@@ -58,6 +62,12 @@
 
         <td show.bind="!columns.type.hidden" style="text-align:center">
           <i class="fa fa-artist-type-${artist.type && artist.type.slug}"></i>
+        </td>
+
+        <td show.bind="!columns.roles.hidden" style="text-align:center">
+          <a href="#/role/${role.instanceSlug}" repeat.for="role of artist.roles">
+            <i class="fa fa-artist-role-${role.instanceSlug}"></i>
+          </a>
         </td>
 
         <td show.bind="!columns.songCount.hidden" style="text-align:right">

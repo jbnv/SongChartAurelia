@@ -5,7 +5,7 @@
     <h2>
       ${title}
       <i class="fa fa-artist-${status}"></i>
-      <span class="small">${songAdjustedAverage} #${rank}</span>
+      <span class="small" show.bind="songAdjustedAverage > 0">${songAdjustedAverage} #${rank}</span>
     </h2>
   </section>
 
@@ -41,6 +41,23 @@
               <div class="col-xs-1 text-right">${origin.rank}</div>
               <div class="col-xs-5">
                 <compose view-model="rank-bar" model.bind="origin"></compose>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <tr show.bind="roles && roles.length > 0">
+        <th>Tag${roles.length > 1 ? 's' : ''}/List${roles.length > 1 ? 's' : ''}</th>
+        <td colspan=5>
+          <div class="container">
+            <div class="row" repeat.for="role of roles">
+              <div class="col-xs-6">
+                <a href="#/role/${role.instanceSlug}">${role.title}</a>
+              </div>
+              <div class="col-xs-1 text-right">${role.rank}</div>
+              <div class="col-xs-5">
+                <compose view-model="rank-bar" model.bind="role"></compose>
               </div>
             </div>
           </div>

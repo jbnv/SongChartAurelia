@@ -20,3 +20,17 @@
 .fa-artist-type-fmm:before { content: "\f182\f183\f183" }
 .fa-artist-type-ffm:before { content: "\f182\f182\f183" }
 .fa-artist-type-fff:before { content: "\f182\f182\f182" }
+
+.fa-artist-role-singer:before { content: "\f130" } /* microphone */
+.fa-artist-role-rapper:before { content: "\f130" } /* microphone */
+.fa-artist-role-vocalist:before { content: "\f130" } /* microphone */
+.fa-artist-role-songwriter:before { content: "\f040" } /* pencil */
+.fa-artist-role-lyricist:before { content: "\f040" } /* pencil */
+.fa-artist-role-producer:before { content: "\f066" } /* compress/combine */
+.fa-artist-role-musician:before { content: "\f001" } /* musical note */
+.fa-artist-role-bassist:before { content: "\f001" } /* musical note */
+.fa-artist-role-drummer:before { content: "\f001" } /* musical note */
+.fa-artist-role-guitarist:before { content: "\f001" } /* musical note */
+.fa-artist-role-keyboardist:before { content: "\f001" } /* musical note */
+.fa-artist-role-pianist:before { content: "\f001" } /* musical note */
+.fa-artist-role-saxophonist:before { content: "\f001" } /* musical note */
