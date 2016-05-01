@@ -49,6 +49,9 @@ export class Artist extends Data {
         case "genre":
           entity = this.genres.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
+        case "role":
+          entity = this.roles.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
+          break;
         case "origin":
           entity = this.origin || {};
           break;
