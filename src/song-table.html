@@ -90,7 +90,11 @@
             <a href="#/source/${song.source.slug}">${song.source.title}</a>
         </td>
 
-        <td show.bind="!columns.debutDate.hidden">${song.debut}</td>
+        <td show.bind="!columns.debutDate.hidden">
+          <a href="#/${song.debutEra.type}/${song.debutEra.slug}">
+            ${song.debut}
+          </a>
+        </td>
 
         <td show.bind="!columns.score.hidden" style="text-align:right">
           <span show.bind="song.score > 0">${song.score | decimal:2}</span>

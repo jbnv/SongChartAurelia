@@ -1,5 +1,6 @@
 import {Columns} from './columns';
 import {Collection} from './collection';
+import {Era} from './era';
 
 export class SongTable extends Collection {
 
@@ -172,6 +173,8 @@ export class SongTable extends Collection {
     // Make sure that each song has good data.
     this.content.forEach(function(song) {
       if (!song.artists) song.artists = [];
+      if (!song.debutEra) song.debutEra = new Era(song.debut);
+      console.log(song.debutEra.type);
     });
 
     if (data.showOnly) {
