@@ -191,6 +191,10 @@ div.au-stagger {
   vertical-align: baseline;
 }
 
+.vertical-bar:hover {
+  background-color: #333333;
+}
+
 .leader {
   background-color: #489948; /* green */
 }
