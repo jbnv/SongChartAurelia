@@ -48,10 +48,15 @@ export class YearScales {
         highlight = "lagger";
       }
       this.countScales.push({
-        title: year.title, scale: year.count/maxCount
+        title: year.title,
+        scale: year.count/maxCount,
+        route: "year/"+yearNumber
       });
       this.aaScales.push({
-        title: year.title, scale: year.aa/maxAA, highlight: highlight
+        title: year.title, 
+        scale: year.aa/maxAA,
+        route: "year/"+yearNumber,
+        highlight: highlight
       });
     });
 
