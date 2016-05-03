@@ -39,6 +39,10 @@
   </section>
 
   <section>
+    <compose view-model="scale-graph" model.bind="countScales"></compose>
+  </section>
+
+  <section>
     <compose
       view-model="song-table"
       model.bind="{'songs':items,'showOnly':['rank','title','artist','score','debutDate','debutRank','peakRank','duration']}"

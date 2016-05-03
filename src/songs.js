@@ -1,4 +1,5 @@
 import {Data} from './data';
+import {Era} from './era';
 
 export class Songs extends Data {
 
@@ -28,13 +29,7 @@ export class Songs extends Data {
 
   subtitle = "";
 
-  massage = (inbound) => {
-
-    if (this.parameters.filter) {
-      this.filter = this.parameters.filter.replace(":","-");
-    } else {
-      this.filter = null;
-    }
+  setSubtitle(inbound) {
 
     if (this.parameters.filter === "sample") {
       this.subtitle = this.sampleSize;
@@ -52,5 +47,56 @@ export class Songs extends Data {
     }
 
     this.subtitle = `${inbound.totalCount}`;
+
+  }
+
+  setYearGraph() {
+
+    this.years = {};
+    for (let year = 1950; year <= 2016; year++) {
+      let title = (""+year).substr(2,1)+" "+(""+year).substr(3,1);
+      this.years[year] = {title:title, count:0, score:0};
+    }
+
+    this.items.forEach(song => {
+      if (!song.debutEra) {
+        song.debutEra = new Era(song.debut);
+      }
+      let year = song.debutEra.year;
+      if (year) {
+        this.years[year].count++;
+        this.years[year].score += song.score;
+      }
+    })
+
+    let maxCount = 1; // ensure that divisor is always greater than 0
+
+    Object.keys(this.years).forEach(yearNumber => {
+      let year = this.years[yearNumber];
+      if (year.count > maxCount) maxCount = year.count;
+    });
+
+    this.countScales = [];
+
+    Object.keys(this.years).forEach(yearNumber => {
+      let year = this.years[yearNumber];
+      this.countScales.push({
+        title: year.title, scale: year.count/maxCount
+      });
+    });
+
+  }
+
+  massage = (inbound) => {
+
+    if (this.parameters.filter) {
+      this.filter = this.parameters.filter.replace(":","-");
+    } else {
+      this.filter = null;
+    }
+
+    this.setSubtitle(inbound);
+    this.setYearGraph();
+
   }
 }
