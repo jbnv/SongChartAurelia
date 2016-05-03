@@ -1,11 +1,13 @@
 <template>
 
-  <section>
-    <h2>
-      ${title}
-      <span class="small"><b>SAA</b> ${songAdjustedAverage}</span>
-    </h2>
-  </section>
+    <require from="./decimal"></require>
+
+    <section>
+      <h2>
+        ${title}
+        <span class="small">${songAdjustedAverage | decimal:2}<span>
+      </h2>
+    </section>
 
   <section>
     <compose view-model="page-nav" model.bind="pageNavModel"></compose>
