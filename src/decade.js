@@ -35,10 +35,18 @@ export class Decade extends Data {
     };
 
     this.countScales = [];
-    this.aaScales = [];    
+    this.aaScales = [];
     this.years.forEach(year => {
-      this.countScales.push({title: year.title, scale: year.songCountScale});
-      this.aaScales.push({title: year.title, scale: year.songAdjustedAverageScale});
+      this.countScales.push({
+        title: year.title,
+        scale: year.songCountScale,
+        route: "year/"+year.slug
+      });
+      this.aaScales.push({
+        title: year.title,
+        scale: year.songAdjustedAverageScale,
+        route: "year/"+year.slug
+      });
     });
 
   }

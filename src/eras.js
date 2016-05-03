@@ -34,11 +34,13 @@ export class Eras extends Data {
 
       this.decadeCountScales.push({
         title: decade.title,
-        scale: decade.songCountScale
+        scale: decade.songCountScale,
+        route: "decade/"+decade.slug
       });
       this.decadeAaScales.push({
         title: decade.title,
         scale: decade.songAdjustedAverageScale,
+        route: "decade/"+decade.slug,
         highlight: colorStyle(decade.songCountScale,decade.songAdjustedAverageScale)
       });
 
@@ -53,11 +55,13 @@ export class Eras extends Data {
       var title = ""+year.title.substr(2,1)+" "+year.title.substr(3,1);
       this.yearCountScales.push({
         title: title,
-        scale: year.songCountScale
+        scale: year.songCountScale,
+        route: "year/"+year.slug
       });
       this.yearAaScales.push({
         title: title,
         scale: year.songAdjustedAverageScale,
+        route: "year/"+year.slug,
         highlight: colorStyle(year.songCountScale,year.songAdjustedAverageScale)
       });
 
