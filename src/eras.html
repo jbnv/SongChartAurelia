@@ -6,14 +6,14 @@
 
   <section>
     <h3>Song Counts</h3>
-    <compose view-model="scale-graph" model.bind="decadeCountScales"></compose>
-    <compose view-model="scale-graph" model.bind="yearCountScales"></compose>
+    <compose view-model="decade-count-graph" model.bind="decades"></compose>
+    <compose view-model="decade-saa-graph" model.bind="decades"></compose>
   </section>
 
   <section>
     <h3>SAAs</h3>
-    <compose view-model="scale-graph" model.bind="decadeAaScales"></compose>
-    <compose view-model="scale-graph" model.bind="yearAaScales"></compose>
+    <compose view-model="year-count-graph" model.bind="years"></compose>
+    <compose view-model="year-saa-graph" model.bind="years"></compose>
   </section>
 
 </template>
