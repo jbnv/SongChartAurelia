@@ -1,7 +1,14 @@
 <template>
+
   <div class="graph">
-      <div class="vertical-bar ${item.highlight}" style="width: ${100/items.length}%; height: ${100*item.scale}%" repeat.for="item of items"></div>
+      <div
+        title.bind="item.tooltip"
+        class="vertical-bar ${item.highlight}"
+        style="width: ${100/items.length}%; height: ${100*item.scale}%"
+        repeat.for="item of items">
+      </div>
   </div>
+
   <div style="width:100%">
     <div class="vertical-bar-title"
         style="width: ${100/items.length}%;" repeat.for="item of items">
@@ -9,4 +16,5 @@
         <span if.bind="!item.route">${item.title}</span>
     </div>
   </div>
+
 </template>
