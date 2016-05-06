@@ -12,26 +12,15 @@ export class Decades extends Collection {
     'songAdjustedAverage': 'SAA',
   });
 
-  countScales = [];
-  aaScales = [];
-
   massage = (inbound) => {
+    this.decades = inbound.decades;
     this.content = [];
-    this.countScales = [];
-    this.aaScales = [];
-
     Object.keys(inbound.decades).sort().forEach(key => {
-
-      let decade = inbound.decades[key];
-      decade.slug = key;
-      decade.title = key;
-      this.content.push(decade);
-
-      this.countScales.push({title: decade.title, scale: decade.songCountScale});
-      this.aaScales.push({title: decade.title, scale: decade.songAdjustedAverageScale});
-
+      let e = inbound.decades[key];
+      e.slug = key;
+      e.title = key;
+      this.content.push(e);
     });
-
     this.aggregate();
   }
 
