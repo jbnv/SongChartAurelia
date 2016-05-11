@@ -9,12 +9,10 @@ export class YearScales {
   activate(songs) {
 
     this.years = {};
-    this.countScales = [];
-    this.aaScales = [];
 
     for (let year = 1950; year <= 2016; year++) {
       let title = (""+year).substr(2,1)+" "+(""+year).substr(3,1);
-      this.years[year] = {title:title, count:0, score:0};
+      this.years[year] = {title:title, songCount:0, score:0};
     }
 
     songs.forEach(song => {
@@ -23,7 +21,7 @@ export class YearScales {
       }
       let year = song.debutEra.year;
       if (year) {
-        this.years[year].count++;
+        this.years[year].songCount++;
         this.years[year].score += song.score;
       }
     })
@@ -33,31 +31,20 @@ export class YearScales {
 
     Object.keys(this.years).forEach(yearNumber => {
       let year = this.years[yearNumber];
-      year.aa = year.score / Math.sqrt(year.count);
-      if (year.count > maxCount) maxCount = year.count;
-      if (year.aa > maxAA) maxAA = year.aa;
+      year.songAdjustedAverage = year.score / Math.sqrt(year.songCount);
+      if (year.songCount > maxCount) maxCount = year.songCount;
+      if (year.songAdjustedAverage > maxAA) maxAA = year.songAdjustedAverage;
     });
 
     Object.keys(this.years).forEach(yearNumber => {
       let year = this.years[yearNumber];
-      let r = (year.aa/maxAA)/(year.count/maxCount);
-      let highlight = "";
+      let r = (year.songAdjustedAverage/maxAA)/(year.songCount/maxCount);
+      year.highlight = "";
       if (r >= 1.2) {
-        highlight = "leader";
+        year.highlight = "leader";
       } else if (r <= 0.8) {
-        highlight = "lagger";
+        year.highlight = "lagger";
       }
-      this.countScales.push({
-        title: year.title,
-        scale: year.count/maxCount,
-        route: "year/"+yearNumber
-      });
-      this.aaScales.push({
-        title: year.title, 
-        scale: year.aa/maxAA,
-        route: "year/"+yearNumber,
-        highlight: highlight
-      });
     });
 
   }

@@ -14,7 +14,8 @@ export class YearSaaGraph extends ScaleGraph {
       "ordinal": year.slug,
       "value": year.songAdjustedAverage,
       "route": "year/"+year.slug,
-      "tooltip": year.slug+": "+this.saa(year)
+      "tooltip": year.slug+": "+this.saa(year),
+      "highlight": year.highlight
     };
   }
 }
