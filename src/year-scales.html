@@ -1,19 +1,29 @@
 <template>
 
   <section>
-    <h3>Counts by Year</h3>
+    <h3>
+      Counts by Year
+      <button class="btn btn-link" type="button" click.trigger="toggleCountGraph()">
+          <span class="caret"></span>
+      </button>
+    </h3>
   </section>
 
-  <section>
+  <section show.bind="showCountGraph">
     <compose view-model="year-count-graph" model.bind="years"></compose>
   </section>
 
   <section>
-    <h3>SAAs by Year</h3>
+    <h3>
+      SAAs by Year
+      <button class="btn btn-link" type="button" click.trigger="toggleSaaGraph()">
+          <span class="caret"></span>
+      </button>
+    </h3>
   </section>
 
-  <section>
-    <compose view-model="year-saa-graph" model.bind="years"></compose>
+  <section show.bind="showSaaGraph">
+    <compose id="year-saa-graph" view-model="year-saa-graph" model.bind="years"></compose>
   </section>
 
 </template>

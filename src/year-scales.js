@@ -6,6 +6,12 @@ export class YearScales {
   countScales = [];
   aaScales = [];
 
+  showCountGraph = true;
+  showSaaGraph = true;
+
+  toggleCountGraph() { this.showCountGraph = !this.showCountGraph; }
+  toggleSaaGraph() { this.showSaaGraph = !this.showSaaGraph; }
+
   activate(songs) {
 
     this.years = {};
