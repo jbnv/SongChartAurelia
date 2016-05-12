@@ -10,7 +10,6 @@ export class YearSaaGraph extends ScaleGraph {
 
   transformFn = function(year) {
     return {
-      "title": title(year),
       "ordinal": year.slug,
       "value": year.songAdjustedAverage,
       "route": "year/"+year.slug,

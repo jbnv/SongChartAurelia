@@ -7,8 +7,12 @@
   </section>
 
   <section>
+    <compose view-model="year-scales" model.bind="songs"></compose>
+  </section>
+
+  <section>
     <h3>Songs <span class="badge">${songListModel.songs.length}</span></h3>
     <compose view-model="song-table" model.bind="songListModel"></compose>
   </section>
-  
+
 </template>

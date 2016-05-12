@@ -6,11 +6,10 @@ export class DecadeSaaGraph extends ScaleGraph {
 
   transformFn = function(decade) {
     return {
-      title: decade.slug,
       ordinal: parseInt(decade.slug.substring(0,4)),
       value: decade.songAdjustedAverage || 0,
       route: "decade/"+decade.slug,
-      tooltip: decade.slug+": "+this.saa(decade),
+      tooltip: decade.slug+"s: "+this.saa(decade),
     };
   };
 
