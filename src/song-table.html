@@ -73,7 +73,8 @@
     </thead>
     <tbody>
 
-      <tr repeat.for="song of content">
+      <tr repeat.for="song of content"
+          class="${(song.messages || []).length > 0 ? 'warning' : ''}">
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
 
