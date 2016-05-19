@@ -16,22 +16,22 @@
         <td>
           <div class="container">
             <div class="row" show.bind="decade">
-              <div class="col-xs-5">${debutEra.title}</div>
+              <div class="col-xs-3">${debutEra.title}</div>
               <div class="col-xs-1 text-right">
                 <a href="#/decade/${debutEra.decade}s">${debutEra.decade}s</a>
               </div>
               <div class="col-xs-1 text-right">${decade.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="decade"></compose>
               </div>
             </div>
             <div class="row" show.bind="year">
-              <div class="col-xs-5">&nbsp;</div>
+              <div class="col-xs-3">&nbsp;</div>
               <div class="col-xs-1 text-right">
                 <a href="#/year/${debutEra.year}">${debutEra.year}</a>
               </div>
               <div class="col-xs-1 text-right">${year.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="year"></compose>
               </div>
             </div>
@@ -43,12 +43,12 @@
         <td>
           <div class="container">
             <div class="row" repeat.for="artist of artists">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <a href="#/artist/${artist.slug}">${artist.title}</a>
                 <span class="small text-muted" if.bind="artist.roleSlug !== true">${artist.roleSlug}</span>
               </div>
               <div class="col-xs-1 text-right">${artist.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="artist"></compose>
               </div>
             </div>
@@ -60,28 +60,27 @@
         <td>
           <div class="container">
             <div class="row" repeat.for="genre of genres">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
               </div>
               <div class="col-xs-1 text-right">${genre.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="genre"></compose>
               </div>
             </div>
           </div>
         </td>
       </tr>
-      <tr show.bind="source">
-        <th>Source</th>
+      <tr show.bind="sources.length > 0">
+        <th>Source${sources.length > 1 ? 's' : ''}</th>
         <td>
           <div class="container">
-            <div class="row">
-              <div class="col-xs-6">
+            <div class="row" repeat.for="source of sources">
+              <div class="col-xs-4">
                 <a href="#/source/${source.instanceSlug}">${source.title}</a>
-                <!-- TODO Type icon -->
               </div>
               <div class="col-xs-1 text-right">${source.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="source"></compose>
               </div>
             </div>
@@ -93,11 +92,11 @@
         <td>
           <div class="container">
             <div class="row" repeat.for="playlist of playlists">
-              <div class="col-xs-6">
+              <div class="col-xs-4">
                 <a href="#/playlist/${playlist.instanceSlug}">${playlist.title}</a>
               </div>
               <div class="col-xs-1 text-right">${playlist.rank}</div>
-              <div class="col-xs-5">
+              <div class="col-xs-3">
                 <compose view-model="rank-bar" model.bind="playlist"></compose>
               </div>
             </div>
