@@ -16,16 +16,16 @@ export class Song extends Data {
       let entity = null;
       switch (typeSlug) {
         case "artist":
-          entity = this.artists.filter(a => a.slug == instanceSlug)[0];
+          entity = this.artists.filter(a => (a || {}).slug == instanceSlug)[0];
           break;
         case "genre":
-          entity = this.genres.filter(a => a.instanceSlug == instanceSlug)[0];
+          entity = this.genres.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
         case "playlist":
-          entity = this.playlists.filter(a => a.instanceSlug == instanceSlug)[0];
+          entity = this.playlists.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
         case "source":
-          entity = this.source || {};
+          entity = this.sources.filter(a => (a || {}).instanceSlug == instanceSlug)[0];
           break;
         case "decade":
           entity = this.decade = {"instanceSlug":key};
