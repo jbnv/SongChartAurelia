@@ -14,6 +14,10 @@
           <a click.trigger="sortByRank()">Rank</a>
         </th>
 
+        <th show.bind="!columns.overallRank.hidden" class="${sortColumn === 'rank' ? 'active' : ''}">
+          <a click.trigger="sortByOverallRank()">OR</a>
+        </th>
+
         <th show.bind="!columns.title.hidden" class="${sortColumn === 'title' ? 'active' : ''}">
           <a click.trigger="sortByTitle()">Title</a>
         </th>
@@ -44,7 +48,15 @@
     			Projected Rank
     		</th>
 
-    		<th show.bind="!columns.debutRank.hidden" style="text-align:right">
+    		<th show.bind="!columns.debutScore.hidden" style="text-align:right">
+    			DS
+    		</th>
+
+    		<th show.bind="!columns.peakScore.hidden" style="text-align:right">
+    			PS
+    		</th>
+
+        <th show.bind="!columns.debutRank.hidden" style="text-align:right">
     			DR
     		</th>
 
@@ -77,6 +89,8 @@
           class="${(song.messages || []).length > 0 ? 'warning' : ''}">
 
         <td show.bind="!columns.rank.hidden">${song.rank}</td>
+
+        <td show.bind="!columns.overallRank.hidden">${song.ranks[subsetSlug]}</td>
 
         <td show.bind="!columns.title.hidden">
           <a href="#/song/${song.instanceSlug}">${song.title}</a>
@@ -130,6 +144,14 @@
 
         <td show.bind="!columns.projectedRank.hidden" style="text-align:right">
           <span show.bind="song.projectedRank > 0">${song.projectedRank | decimal:1}</span>
+        </td>
+
+        <td show.bind="!columns.debutScore.hidden" style="text-align:right">
+          <span>${song.debutScore | decimal:3}</span>
+        </td>
+
+        <td show.bind="!columns.peakScore.hidden" style="text-align:right">
+          <span>${song.peakScore | decimal:3}</span>
         </td>
 
         <td show.bind="!columns.debutRank.hidden" style="text-align:right">

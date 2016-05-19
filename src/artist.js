@@ -28,9 +28,10 @@ export class Artist extends Data {
     this.xref = inbound.xref || [];
     this.tags = inbound.tags || [];
     this.songTableModel = {
+      'subsetSlug':"artist:"+inbound.slug,
       'showOnly':[
         'rank','title','role','source','score',
-        'debutDate','debutRank','peakRank','duration'
+        'debutDate','debutScore','peakScore','duration'
       ]
     };
     this.songTableModel.songs = inbound.songs || [];

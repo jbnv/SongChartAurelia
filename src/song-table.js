@@ -13,6 +13,8 @@ export class SongTable extends Collection {
     'source': 'Source',
     'projectedRank': "Projected Rank",
     'debutDate': "Debut Date",
+    'debutScore': "Debut Score",
+    'peakScore': "Peak Score",
     'debutRank': "Debut Rank",
     'peakRank': "Peak Rank",
     'duration': "Duration (Months)",
@@ -169,6 +171,7 @@ export class SongTable extends Collection {
   activate(data) {
 
     this.content = data.songs || [];
+    this.subsetSlug = data.subsetSlug;
 
     // Make sure that each song has good data.
     this.content.forEach(function(song) {
