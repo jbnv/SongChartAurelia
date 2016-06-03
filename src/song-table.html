@@ -42,6 +42,10 @@
           <a click.trigger="sortByScore()">Score</a>
         </th>
 
+        <th show.bind="!columns.score.hidden">
+          &nbsp;
+        </th>
+
     		<th show.bind="!columns.projectedRank.hidden"></th>
 
     		<th show.bind="!columns.projectedRank.hidden" style="text-align:right">
@@ -136,6 +140,10 @@
 
         <td show.bind="!columns.score.hidden" style="text-align:right">
           <span show.bind="song.score > 0">${song.score | decimal:2}</span>
+        </td>
+
+        <td show.bind="!columns.score.hidden" style="text-align:right">
+          <i class="fa fa-plus" show.bind="song.score < song.totalScore"></i>
         </td>
 
         <td show.bind="!columns.projectedRank.hidden">
