@@ -40,5 +40,15 @@ export class Song extends Data {
       }
     });
 
+    this.scores = [];
+    let ascentWeeks = this["ascent-weeks"];
+    let descentWeeks = this["descent-weeks"];
+    for (var i = 1; i < ascentWeeks + descentWeeks; i++) {
+      let denominator = i < ascentWeeks ? ascentWeeks : descentWeeks;
+      this.scores.push(
+        this.peak * (1-Math.pow((i-ascentWeeks)/denominator,2))
+      );
+    }
+
   }
 }
