@@ -52,10 +52,6 @@
     			Projected Rank
     		</th>
 
-    		<th show.bind="!columns.debutScore.hidden" style="text-align:right">
-    			DS
-    		</th>
-
     		<th show.bind="!columns.peakScore.hidden" style="text-align:right">
     			PS
     		</th>
@@ -152,10 +148,6 @@
 
         <td show.bind="!columns.projectedRank.hidden" style="text-align:right">
           <span show.bind="song.projectedRank > 0">${song.projectedRank | decimal:1}</span>
-        </td>
-
-        <td show.bind="!columns.debutScore.hidden" style="text-align:right">
-          <span>${song.debutScore | decimal:3}</span>
         </td>
 
         <td show.bind="!columns.peakScore.hidden" style="text-align:right">
