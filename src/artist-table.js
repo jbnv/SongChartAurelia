@@ -78,7 +78,11 @@ export class ArtistTable extends Collection {
     // Make sure that each artist has good data.
     this.content.forEach(artist => {
       if (typeof artist === 'string') artist = {instanceSlug:artist};
+      if (!artist.instanceSlug) artist.instanceSlug = artist.slug;
       if (!artist.songs) artist.songs = [];
+      if (!this.columns.songAdjustedAverage.hidden && !artist.songAdjustedAverage) {
+        artist.songAdjustedAverage = artist.score;
+      }
     });
 
     this.aggregate();

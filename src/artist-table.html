@@ -74,7 +74,7 @@
           <span if.bind="artist.songCount > 0">${artist.songCount || 0}</span>
         </td>
 
-        <td>
+        <td show.bind="!columns.songCount.hidden">
           <div class="progress" style="width:5em">
             <div class="progress-bar progress-bar-info" role="progressbar"
               aria-valuenow.bind="artist.songCount" aria-valuemin="0" aria-valuemax.bind="maxSongCount"
@@ -87,11 +87,11 @@
           <span if.bind="artist.score > 0">${artist.score | decimal:2}</span></td>
         </td>
 
-        <td show.bind="!columns.scoreAdjustedAverage.hidden" style="text-align:right">
+        <td show.bind="!columns.songAdjustedAverage.hidden" style="text-align:right">
           <span if.bind="artist.score > 0">${artist.songAdjustedAverage | decimal:2}</span></td>
         </td>
 
-        <td>
+        <td show.bind="!columns.songAdjustedAverage.hidden">
           <div class="progress" style="width:5em">
             <div class="progress-bar progress-bar-info" role="progressbar"
               aria-valuenow.bind="artist.songAdjustedAverage" aria-valuemin="0" aria-valuemax.bind="maxSongAdjustedAverage"
