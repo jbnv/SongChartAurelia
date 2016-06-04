@@ -6,10 +6,12 @@ export class SongTable extends Collection {
 
   columns = new Columns({
     'rank': 'Rank',
+    'overallRank':"Overall Rank",
     'title': 'Title',
     'artist': "Artist",
+    'role': "Role",
     'score': 'Score',
-    'role': 'Role',
+    'genre': 'Genre',
     'source': 'Source',
     'projectedRank': "Projected Rank",
     'debutDate': "Debut Date",

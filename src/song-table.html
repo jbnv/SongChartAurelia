@@ -23,11 +23,15 @@
         </th>
 
     		<th show.bind="!columns.artist.hidden">
-    			Artist
+    			Artist(s)
+    		</th>
+
+        <th show.bind="!columns.genre.hidden">
+    			Genre(s)
     		</th>
 
         <th show.bind="!columns.source.hidden">
-    			Source
+    			Source(s)
     		</th>
 
         <th>
@@ -106,8 +110,18 @@
           </span>
         </td>
 
+        <td show.bind="!columns.genre.hidden">
+          <span repeat.for="genre of song.genres">
+            <a href="#/genre/${genre.instanceSlug}">${genre.title}</a>
+            <br>
+          </span>
+        </td>
+
         <td show.bind="!columns.source.hidden">
-            <a href="#/source/${song.source.slug}">${song.source.title}</a>
+          <span repeat.for="source of song.sources">
+            <a href="#/source/${source.instanceSlug}">${source.title}</a>
+            <br>
+          </span>
         </td>
 
         <th class="text-center">

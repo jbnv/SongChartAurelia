@@ -31,7 +31,7 @@ export class Artist extends Data {
     this.songTableModel = {
       'subsetSlug':"artist:"+inbound.slug,
       'showOnly':[
-        'rank','title','role','source','score',
+        'rank','title','role','genre','source','score',
         'debutDate','debutScore','peakScore','duration'
       ]
     };
