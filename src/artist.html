@@ -146,4 +146,9 @@
     <compose view-model="song-table" model.bind="songTableModel"></compose>
   </section>
 
+  <section>
+    <h3>Collaborators <span class="badge">${collaboratorTableModel.artists.length}</span></h3>
+    <compose view-model="artist-table" model.bind="collaboratorTableModel"></compose>
+  </section>
+
 </template>

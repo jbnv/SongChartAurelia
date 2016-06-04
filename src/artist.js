@@ -27,6 +27,7 @@ export class Artist extends Data {
     this.members = inbound.members || [];
     this.xref = inbound.xref || [];
     this.tags = inbound.tags || [];
+
     this.songTableModel = {
       'subsetSlug':"artist:"+inbound.slug,
       'showOnly':[
@@ -35,8 +36,16 @@ export class Artist extends Data {
       ]
     };
     this.songTableModel.songs = inbound.songs || [];
+
     this.score = numeral(inbound.score || 0).format("0.00");
     this.songAdjustedAverage = numeral(inbound.songAdjustedAverage || 0).format("0.00");
+
+    this.collaboratorTableModel = {
+      "artists":inbound.collaborators,
+      'showOnly':[
+        'title','songCount','songAdjustedAverage'
+      ]
+    }
 
     // Pull out ranks and add them to their respective entities.
     // (Could this maybe go on the server side?)
