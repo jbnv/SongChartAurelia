@@ -68,20 +68,16 @@
     			PR
     		</th>
 
-    		<th show.bind="!columns.duration.hidden" style="text-align:right">
-    			M
+        <th show.bind="!columns.duration.hidden" class="${sortColumn === 'duration' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortByDuration()">M</a>
     		</th>
 
-    		<th show.bind="!columns.timeToPeak.hidden" style="text-align:right">
-    			H
+        <th show.bind="!columns.ascent.hidden" class="${sortColumn === 'ascent' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortByAscent()">A</a>
     		</th>
 
-    		<th show.bind="!columns.projectedRank.hidden" repeat.for="index of [1,2,3,4]" style="text-align:right">
-    			<div class="dropdown">
-    				<a href="#" data-toggle="dropdown" class="dropdown-toggle">W${index}</a>
-    				<ul class="dropdown-menu">
-    				</ul>
-    			</div>
+        <th show.bind="!columns.descent.hidden" class="${sortColumn === 'descent' ? 'active' : ''}" style="text-align:right">
+          <a click.trigger="sortByDescent()">D</a>
     		</th>
 
     	</tr>
@@ -180,12 +176,12 @@
           <span show.bind="!columns.projectedRank.hidden">${song.monthIndex+1} / </span>${song.duration}
         </td>
 
-        <td show.bind="!columns.timeToPeak.hidden" style="text-align:right">
-          <span show.bind="song.debutRank > 0">${song.timeToPeak | decimal:1}</span>
+        <td show.bind="!columns.ascent.hidden" style="text-align:right">
+          <span>${song["ascent-weeks"] | decimal:2}</span>
         </td>
 
-        <td show.bind="!columns.projectedRank.hidden" repeat.for="index of [0,1,2,3]" style="text-align:right">
-          ${song.ranks[song.monthIndex*4+index] | decimal:1}
+        <td show.bind="!columns.descent.hidden" style="text-align:right">
+          <span>${song["descent-weeks"] | decimal:2}</span>
         </td>
 
       </tr>

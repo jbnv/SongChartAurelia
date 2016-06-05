@@ -19,7 +19,7 @@ export class Playlist extends Data {
 
     this.songListModel = {
       "songs": inbound.songs,
-      "showOnly": inbound.columns || ['rank','title','artist','score','debutDate'],
+      "showOnly": inbound.columns || ['rank','title','artist','score','debutDate','duration','ascent','descent'],
       "sort": inbound.sort || "score"
     }
   }

@@ -20,10 +20,8 @@ export class SongTable extends Collection {
     'debutRank': "Debut Rank",
     'peakRank': "Peak Rank",
     'duration': "Duration (Months)",
-    'k': "Coefficient Constant",
-    'a': "Ascent Coefficient",
-    'b': "Descent Coefficient",
-    'timeToPeak': "Time to Peak"
+    'ascent': "Ascent (Weeks)",
+    'descent': "Descent (Weeks)"
   });
 
   filter = {};
@@ -163,7 +161,6 @@ export class SongTable extends Collection {
 
   constructor() {
     super(); // if you are extending a class you must call super() before accessing 'this'
-    this.columns.timeToPeak.hidden = true;
     this.init();
   }
 

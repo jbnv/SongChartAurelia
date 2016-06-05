@@ -48,6 +48,16 @@ export class Collection extends Data {
   sortByScore()       { this.sort("score"); }
   sortBySAA()         { this.sort("songAdjustedAverage"); }
   sortByAAA()         { this.sort("artistAdjustedAverage"); }
+  sortByDuration()    { this.sort("duration", function(a,b) {
+    return (b["ascent-weeks"] || 0) + (b["descent-weeks"] || 0)
+    - (a["ascent-weeks"] || 0) - (a["descent-weeks"] || 0);
+  }); }
+  sortByAscent()      { this.sort("ascent", function(a,b) {
+    return (b["ascent-weeks"] || 0) - (a["ascent-weeks"] || 0);
+  }); }
+  sortByDescent()     { this.sort("descent", function(a,b) {
+    return (b["descent-weeks"] || 0) - (a["descent-weeks"] || 0);
+  }); }
 
   aggregate() {
 
